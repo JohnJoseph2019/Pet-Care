@@ -1,9 +1,4 @@
-# PROJECT 4 README <!-- omit in toc -->
-
-> The Project Planning section **should be completed** for your project pitch with instructors.
->
-> To ensure correct Markdown, I recommend cloning this wiki and copy/pasting the raw template code.
-
+# PetCare
 - [Overview](#overview)
 - [MVP](#mvp)
   - [Goals](#goals)
@@ -24,26 +19,21 @@
 
 ## Overview
 
-_**Project Title** is lorem ipsum dolor sit amet. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
+_**PetCare** This is an app for pet owners that need a babysitter for there pets on that day. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need care . Also you can checkout our database of all our sitters wit information that you might find handy for contact.
 
 <br>
 
 ## MVP
-
-> The Minimum Viable Product should be a well-planned, easily-communicated product, ensuring that the client's deliverable will be achievable and meet specifications within the time frame estimated.
-
-_The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dapibus fermentum risus vitae bibendum. Integer vel ipsum mollis odio sollicitudin ornare eu vel ex. In quis fringilla velit, ac maximus quam. Etiam eget placerat neque. Aenean faucibus sem non nisi lobortis ullamcorper._
-
+Well for my MVP I want to be able to buil a full stack project with CRUD in the front end and back using rails. 
 <br>
 
 ### Goals
 
-- _Lorem ipsum, dolor sit amet,_
-- _consectetur adipiscing elit._
-- _Phasellus dapibus fermentum risus vitae bibendum._
-- _Integer vel ipsum mollis odio sollicitudin ornare eu vel ex._
-- _etc._
+- Complete Full back end authentication
+- Complete Full CRUD in the back end using Rails
+- Complete Full CRUD on the front end using React
+- Be able to Use FlexBox
+- Have authentication on the front end
 
 <br>
 
@@ -53,11 +43,9 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 |     Library      | Description                                |
 | :--------------: | :----------------------------------------- |
-|      React       | _Lorem ipsum dolor sit amet, consectetur._ |
-|   React Router   | _Lorem ipsum dolor sit amet, consectetur._ |
-| React SemanticUI | _Lorem ipsum dolor sit amet, consectetur._ |
-|     Express      | _Lorem ipsum dolor sit amet, consectetur._ |
-|  Express Router  | _Lorem ipsum dolor sit amet, consectetur._ |
+|      React       |This will allow me to use JS and HTML to render my API calls|
+|   Ruby on Rails | This I will use to build in my backEnd |
+
 
 <br>
 
@@ -65,35 +53,17 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 #### Wireframes
 
-> Use the Wireframes section to display desktop, tablet and mobile views.
+> Here is my Front end wireframes using Adobe XD
 
-![Dummy Link](url)
+[Front End](https://xd.adobe.com/view/600e46bf-3ee2-4fb4-7ef7-983be3634f53-163f/)
 
-- Desktop Landing
-
-![Dummy Link](url)
-
-- Desktop Hero
-
-![Dummy Link](url)
-
-- Resource Index
-
-![Dummy Link](url)
-
-- Resource Show
-
-![Dummy Link](url)
-
-- Tablet Resource Index
-
-![Dummy Link](url)
-
-- Mobile Resource Index
 
 #### Component Tree
 
-> Use this section to display the structure of how your React components are being rendered. This should show the parent to child relation between you components. In other words, show which components are rendering the other components. 
+> Here is my diagram tree using Diagrams.net 
+
+![Tree](./PetCarTree.png)
+
 
 #### Component Hierarchy
 
@@ -101,15 +71,39 @@ _The **Project Title** MVP lorem ipsum dolor sit amet, consectetur adipiscing el
 
 ``` structure
 
-src
-|__ assets/
-      |__ fonts
-      |__ graphics
-      |__ images
-      |__ mockups
-|__ components/
-      |__ Header.jsx
-|__ services/
+PetCare
+|__ app/
+      |__ channels/
+      |__ controllers/
+      |__ jobs/
+      |__ mailers
+      |__ models
+      |__ views
+|__ bin/
+|__ client/
+      |__ public/
+      |__ src/
+|__ config/ 
+      |__ initializers/     
+                    |__ cors.rb   
+      |__ routes.rb       
+|__ db/ 
+      |__ migrate/     
+      |__ schema.rb     
+      |__ seeds.rb     
+|__ lib/      
+|__ log/      
+|__ public/      
+|__ storage/      
+|__ test/      
+|__ tmp/      
+|__ .gitignore      
+|__ .ruby-version     
+|__ Gemfile     
+|__ Gemfile     
+|__ Rakefile     
+|__ README.md    
+
 
 ```
 
@@ -119,23 +113,42 @@ src
 
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
-|    Header    | functional |   n   |   n   | _The header will contain the navigation and logo._               |
-|  Navigation  | functional |   n   |   n   | _The navigation will provide a link to each of the pages._       |
-|   Gallery    |   class    |   y   |   n   | _The gallery will render the posts using cards in flexbox._      |
-| Gallery Card | functional |   n   |   y   | _The cards will render the post info via props._                 |
-|    Footer    | functional |   n   |   n   | _The footer will show info about me and a link to my portfolio._ |
+|    App    | Class |   y   |   y   | This is where the app is going to render state and have all the api calls|
+|  Main  | functional |   n   |   n   | this will just render the heaaders and all the routes for the page|
+|   Header   |   functional   |   n   |   n   | This will just be in charge of all the header navigational for the user|
+| login | class |   y  |   y   | This is a form that will handle when a user logs in|
+|    SignUP    | class |   y   |   y   | This will handle the new users for the app |
+|    AddPet    | class |   y   |   y   | This will handle the users new pets |
+|    ShowPets    | functional |   n  |   n   | Just render all the users pets |
+|    UpdatePets    | class |   y  |   y   | This will updated the users pets if needed |
+|    Create an Appointment    | class |   y  |   y   | This is a form to set up an appointment |
+|    ShowSitters   | functional |   n  |   n   | Just render all the sitters in out system |
 
 #### Component Estimates
 
-> Use this section to estimate the time necessary to build out each of the components you've described above.
+| Task | Priority | Estimated Time | Time Invested | Actual Time |
+| --- | :---: |  :---: | :---: | :---: |
+| Start instailling back End Rails| L | 1hr| |  |
+| Start user auth back end migrations | H | 2hr||  |
+| Back ends models | H | 2hr |  |  |
+| Back controllers and routes | H | 4hr | | |
+| Back End check in positico is is working | M | 4hr | |  |
+| Finish with auth| H | 3hr |  | |
+| Start installing for front End| H | 2hrs |  | |
+| Start Changing index and app.js| H | 2 hr | |  |
+| Working on App.js| H | 2hr |  | |
+| Working on Header| H | 2hr |  | |
+| Work on Main and set up routes| M | 1hr | | |
+| Work on Login| H | 3hr |  |  |
+| Work on Sign Up| H | 3hr |  |  |
+| Work on AddPet| H | 3hr |  |  |
+| Work on ShowPets| H | 3hr |  |  |
+| Work on UpdatePet| H | 3hr |  |  |
+| Work on Create an Appointment| H | 3hr |  |  |
+| Work on Create an ShowSitter| H | 3hr |  |  |
+| Work on CSS| H | 20hr |  |  |
+| Total | H | 66hrs| TBD | TBD|
 
-| Task                | Priority | Estimated Time | Time Invested | Actual Time |
-| ------------------- | :------: | :------------: | :-----------: | :---------: |
-| Add Contact Form    |    L     |     3 hrs      |     2 hrs     |    3 hrs    |
-| Create CRUD Actions |    H     |     3 hrs      |     1 hrs     |     TBD     |
-| TOTAL               |          |     6 hrs      |     3 hrs     |     TBD     |
-
-> _Why is this necessary? Time frames are key to the development cycle. You have limited time to code your app, and your estimates can then be used to evaluate possibilities of your MVP and post-MVP based on time needed. It's best you assume an additional hour for each component, as well as a few hours added to the total time, to play it safe._
 
 <br>
 
@@ -143,7 +156,9 @@ src
 
 #### ERD Model
 
-> Use this section to display an image of a computer generated ERD model.
+> My ERD using Diagrams.net
+
+![ERD](./PetCareERD.png)
 
 <br>
 
@@ -151,14 +166,17 @@ src
 
 ## Post-MVP
 
-> Use this section to document ideas you've had that would be fun (or necessary) for your Post-MVP. This will be helpful when you return to your project after graduation!
-
+- Be Able to add a login for the the sitters
+- Be able to add a calender so it can be easier for the usr to choose a date
+- Be able facilitate more appoitnmet form
+- have a search component to search the sitters
+- Add a showSitterDetail component so that the user can see and click a button to add them to her favorites
 ***
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description.
+> Use this section to include a brief code snippet of functionality that you are proud of and a brief description. None at the moment
 
 ## Code Issues & Resolutions
 
-> Use this section to list of all major issues encountered and their resolution, if you'd like.
+> Use this section to list of all major issues encountered and their resolution, if you'd like. None at the moment
