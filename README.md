@@ -62,7 +62,7 @@ Well for my MVP I want to be able to buil a full stack project with CRUD in the 
 
 > Here is my diagram tree using Diagrams.net 
 
-![Tree](./PetCarTree.png)
+![Tree](./diagrams//PetCareTree.png)
 
 
 #### Component Hierarchy
@@ -157,7 +157,7 @@ PetCare
 
 > My ERD using Diagrams.net
 
-![ERD](./PetCareERD.png)
+![ERD](./diagrams/PetCareERD.png)
 
 <br>
 
