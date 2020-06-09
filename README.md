@@ -19,7 +19,7 @@
 
 ## Overview
 
-**PetCare** This is an app for pet owners that need a babysitter for there pets on that day. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need a sitter . Also you can checkout our database of all our sitters with basic information that you might find handy for contact.
+**PetCare** This is an app for pet owners that need a babysitter for there pets. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need a sitter. Also you can checkout our database of all our sitters with basic information that you might find handy for contact.
 
 <br>
 
@@ -108,8 +108,6 @@ PetCare
 ```
 
 #### Component Breakdown
-
-> Use this section to go into further depth regarding your components, including breaking down the components as stateless or stateful, and considering the passing of data between those components.
 
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
