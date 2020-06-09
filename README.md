@@ -19,7 +19,7 @@
 
 ## Overview
 
-_**PetCare** This is an app for pet owners that need a babysitter for there pets on that day. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need care . Also you can checkout our database of all our sitters wit information that you might find handy for contact.
+_**PetCare** This is an app for pet owners that need a babysitter for there pets on that day. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need a sitter . Also you can checkout our database of all our sitters with basic information that you might find handy for contact.
 
 <br>
 
@@ -114,7 +114,7 @@ PetCare
 |  Component   |    Type    | state | props | Description                                                      |
 | :----------: | :--------: | :---: | :---: | :--------------------------------------------------------------- |
 |    App    | Class |   y   |   y   | This is where the app is going to render state and have all the api calls|
-|  Main  | functional |   n   |   n   | this will just render the heaaders and all the routes for the page|
+|  Main  | functional |   n   |   n   | This will just render the heaaders and all the routes for the page|
 |   Header   |   functional   |   n   |   n   | This will just be in charge of all the header navigational for the user|
 | login | class |   y  |   y   | This is a form that will handle when a user logs in|
 |    SignUP    | class |   y   |   y   | This will handle the new users for the app |
