@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[show update destroy]
   before_action :authorize_request
+  before_action :set_pet, only: %i[show update destroy]
+  # before_action :cleanup, only: [:destroy]
 
   # GET /pets
   def index
@@ -15,6 +16,7 @@ class PetsController < ApplicationController
   def show
     # @pet = Pet.find(params[:id])
     render json: @pet, include: :appointments
+    # render json: @current_user.pets.find(params[:id]), include: :appointments
   end
 
   # POST /pets
@@ -49,6 +51,10 @@ class PetsController < ApplicationController
   def set_pet
     @pet = @current_user.pets.find(params[:id])
   end
+
+  # def cleanup
+  #   Appointment.where(pet_id: @pet.id, accepted: false).destroy_all
+  # end
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
