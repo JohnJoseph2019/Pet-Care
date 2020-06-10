@@ -2,11 +2,11 @@
 
 class PetsController < ApplicationController
   before_action :set_pet, only: %i[show update destroy]
+  before_action :authorize_request
 
   # GET /pets
   def index
     @pets = Pet.all
-
     render json: @pets
   end
 
@@ -21,7 +21,7 @@ class PetsController < ApplicationController
     @pet.user = User.find(params[:user_id])
 
     if @pet.save
-      render json: @pet, status: :created, location: @pet
+      render json: @pet, status: :created
     else
       render json: @pet.errors, status: :unprocessable_entity
     end
