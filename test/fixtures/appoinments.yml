@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restriction_note: MyString
+  accepted: false
+  start_date: 2020-06-09 21:30:20
+  end_date: 2020-06-09 21:30:20
+  user: one
+  pet: one
+
+two:
+  restriction_note: MyString
+  accepted: false
+  start_date: 2020-06-09 21:30:20
+  end_date: 2020-06-09 21:30:20
+  user: two
+  pet: two
