@@ -6,19 +6,21 @@ class PetsController < ApplicationController
 
   # GET /pets
   def index
-    @pets = Pet.all
-    render json: @pets
+    # @current_user.pets
+    # @pets = Pet.all
+    render json: @current_user.pets, include: :appointments
   end
 
   # GET /pets/1
   def show
-    render json: @pet
+    # @pet = Pet.find(params[:id])
+    render json: @pet, include: :appointments
   end
 
   # POST /pets
   def create
     @pet = Pet.new(pet_params)
-    @pet.user = User.find(params[:user_id])
+    @pet.user = @current_user
 
     if @pet.save
       render json: @pet, status: :created
@@ -45,7 +47,7 @@ class PetsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = @current_user.pets.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
