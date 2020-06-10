@@ -3,7 +3,7 @@
 class PetsController < ApplicationController
   before_action :authorize_request
   before_action :set_pet, only: %i[show update destroy]
-  # before_action :cleanup, only: [:destroy]
+  before_action :cleanup, only: [:destroy]
 
   # GET /pets
   def index
@@ -52,9 +52,10 @@ class PetsController < ApplicationController
     @pet = @current_user.pets.find(params[:id])
   end
 
-  # def cleanup
-  #   Appointment.where(pet_id: @pet.id, accepted: false).destroy_all
-  # end
+  def cleanup
+    Appointment.where(pet_id: @pet.id, accepted: false).destroy_all
+    Appointment.where(pet_id: @pet.id).update_all(pet_id: '')
+  end
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
