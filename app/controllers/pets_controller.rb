@@ -18,6 +18,7 @@ class PetsController < ApplicationController
   # POST /pets
   def create
     @pet = Pet.new(pet_params)
+    @pet.user = User.find(params[:user_id])
 
     if @pet.save
       render json: @pet, status: :created, location: @pet
@@ -49,6 +50,6 @@ class PetsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
-    params.require(:pet).permit(:name, :domestice_type, :breed, :age, :img_url, :user_id)
+    params.require(:pet).permit(:name, :domestice_type, :breed, :age, :img_url)
   end
 end
