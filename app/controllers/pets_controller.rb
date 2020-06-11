@@ -4,7 +4,6 @@ class PetsController < ApplicationController
   before_action :authorize_request
   before_action :set_pet, only: %i[show update destroy]
   before_action :cleanup, only: [:destroy]
-
   # GET /pets
   def index
     # @current_user.pets

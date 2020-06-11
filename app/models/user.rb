@@ -6,7 +6,8 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :password, length: { minimum: 6 }
+  # Here only validates on create nothing else.... so I can edit
+  validates :password, length: { minimum: 6 }, on: :create
 
   has_many :pets, dependent: :destroy
   has_many :appointments

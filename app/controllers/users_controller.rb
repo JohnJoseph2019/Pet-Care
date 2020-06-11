@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
+  before_action :authorize_request, except: %i[index show create]
   before_action :set_user, only: %i[show update destroy]
-  # before_action :authorize_request, except: [:index, :show]
 
   # GET /users
   def index
@@ -38,7 +38,11 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
+    if @user.destroy
+      render json: User.all
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
   end
 
   private
@@ -46,6 +50,7 @@ class UsersController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
+    # @user = @current_user
   end
 
   # Only allow a trusted parameter "white list" through.
