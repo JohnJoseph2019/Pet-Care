@@ -1,10 +1,12 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 
-export default class Login extends Component {
+export default class Register extends Component {
   state = {
     username: "",
+    email: "",
     password: "",
+    isSitter: false,
   };
 
   handleChange = (event) => {
@@ -14,14 +16,14 @@ export default class Login extends Component {
   };
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleLoginSubmit(this.state);
+    this.props.handRegisterSubmit(this.state);
   };
 
   render() {
-    const {username, password} = this.state;
+    const {username, email, password} = this.state;
     return (
       <>
-        <div className='Login-Title'>Login</div>
+        <div className='Register-Title'>Register</div>
         <form onSubmit={this.handleSubmit}>
           <label className='usernameInput' htmlFor='username'>
             Username:
@@ -36,7 +38,20 @@ export default class Login extends Component {
             />
           </label>
           <br />
-          <label className='passwordInput' htmlFor='username'>
+          <label className='emailInput' htmlFor='email'>
+            email:
+            <input
+              required
+              type='email'
+              name='email'
+              value={email}
+              id='email-input'
+              placeholder='email...'
+              onChange={this.handleChange}
+            />
+          </label>
+          <br />
+          <label className='passwordInput' htmlFor='password'>
             Password:
             <input
               required
@@ -49,7 +64,7 @@ export default class Login extends Component {
             />
           </label>
           <br />
-          <Link to='/user/register'>Register</Link>
+          <Link to='/user/login'></Link>
           <button>Submit</button>
         </form>
       </>
