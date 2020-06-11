@@ -12,10 +12,10 @@ User.create!(username: 'ohyea', email: 'aaa@aaa.com', password: '123456')
 User.create!(username: 'bbbb', email: 'bbb@bbb.com', password: '123456')
 User.create!(username: 'sittr', email: 'sitter@sitter.com', password: '123456', isSitter: true)
 
-Pet.create!(name: 'mr big', domestice_type: 'dog', age: 2, img_url: 'aaa', user_id: 1)
-Pet.create!(name: 'ms bigggggg', domestice_type: 'cat', age: 2, img_url: 'bbb', user_id: 1)
+Pet.create!(name: 'mr big', pet_type: 'dog', age: 2, img_url: 'aaa', user_id: 1)
+Pet.create!(name: 'ms bigggggg', pet_type: 'cat', age: 2, img_url: 'bbb', user_id: 1)
 
-Pet.create!(name: 'lucia', domestice_type: 'cat', age: 2, img_url: 'bbb', user_id: 2)
+Pet.create!(name: 'lucia', pet_type: 'cat', age: 2, img_url: 'bbb', user_id: 2)
 
 Appointment.create!(restriction_note: 'this will be deleted', accepted: false, start_date: '2020/06/11', end_date: '2020/06/12', pet_id: 1)
 Appointment.create!(restriction_note: 'this willllllllllll be deleted', accepted: false, start_date: '2020/06/11', end_date: '2020/06/12', pet_id: 1)
