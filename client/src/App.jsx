@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import {loginUser, registerUser} from "./services/auth";
+import {loginUser, registerUser, removeToken} from "./services/auth";
 
 export default class App extends Component {
   state = {
@@ -16,10 +16,21 @@ export default class App extends Component {
     this.setState({currentUser});
   };
 
+  handleLogout = () => {
+    this.setState({
+      currentUser: null,
+    });
+    localStorage.clear();
+    removeToken();
+  };
+
   render() {
     return (
       <>
-        <Header currentUser={this.state.currentUser} />
+        <Header
+          currentUser={this.state.currentUser}
+          handleLogout={this.handleLogout}
+        />
         <Main
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}
