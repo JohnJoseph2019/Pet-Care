@@ -53,7 +53,6 @@ class PetsController < ApplicationController
 
   def cleanup
     Appointment.where(pet_id: @pet.id, accepted: false).destroy_all
-    Appointment.where(pet_id: @pet.id).update_all(pet_id: '')
   end
 
   # Only allow a trusted parameter "white list" through.
