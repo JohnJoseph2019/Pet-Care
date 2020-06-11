@@ -15,8 +15,15 @@ export default class Register extends Component {
     });
   };
   handleSubmit = (e) => {
+    const {history} = this.props;
     e.preventDefault();
     this.props.handRegisterSubmit(this.state);
+    history.push("/");
+    this.setState({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
 
   render() {

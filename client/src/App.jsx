@@ -1,18 +1,29 @@
 import React, {Component} from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
-import {loginUser, registerUser, removeToken} from "./services/auth";
+import {
+  loginUser,
+  registerUser,
+  removeToken,
+  verifyUser,
+} from "./services/auth";
 
 export default class App extends Component {
   state = {
     currentUser: null,
   };
+
+  componentDidMount() {
+    this.handleVerify();
+  }
+
   handleLoginSubmit = async (loginData) => {
     const currentUser = await loginUser(loginData);
     this.setState({currentUser});
   };
   handRegisterSubmit = async (registerData) => {
     const currentUser = await registerUser(registerData);
+    this.handleLoginSubmit(currentUser);
     this.setState({currentUser});
   };
 
@@ -22,6 +33,11 @@ export default class App extends Component {
     });
     localStorage.clear();
     removeToken();
+  };
+
+  handleVerify = async () => {
+    const currentUser = await verifyUser();
+    this.setState({currentUser});
   };
 
   render() {

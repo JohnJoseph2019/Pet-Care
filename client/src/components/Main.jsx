@@ -9,14 +9,20 @@ export default class Main extends Component {
       <div className='main-div'>
         <Route
           path='/user/login'
-          render={() => (
-            <Login handleLoginSubmit={this.props.handleLoginSubmit} />
+          render={(props) => (
+            <Login
+              {...props}
+              handleLoginSubmit={this.props.handleLoginSubmit}
+            />
           )}
         />
         <Route
           path='/user/register'
-          render={() => (
-            <Register handRegisterSubmit={this.props.handRegisterSubmit} />
+          render={(props) => (
+            <Register
+              {...props}
+              handRegisterSubmit={this.props.handRegisterSubmit}
+            />
           )}
         />
       </div>
