@@ -19,7 +19,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Main
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}
