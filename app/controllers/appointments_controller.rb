@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class AppointmentsController < ApplicationController
+  before_action :authorize_request
   before_action :set_appointment, only: :destroy
   # GET pets/:pet_id/appointments
   def index
