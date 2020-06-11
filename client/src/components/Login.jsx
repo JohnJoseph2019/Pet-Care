@@ -65,7 +65,7 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
       <>
-        <div className='Login-Title'>Login</div>
+        <div className='Login-Title'>Welcome Back</div>
         <form onSubmit={this.handleSubmit}>
           <label className='usernameInput' htmlFor='username'>
             Username:
