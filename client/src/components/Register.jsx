@@ -8,6 +8,7 @@ export default class Register extends Component {
     username: "",
     email: "",
     password: "",
+    img_url: "",
     isSitter: false,
     isError: false,
     errorMsg: "",
@@ -74,7 +75,7 @@ export default class Register extends Component {
   };
 
   render() {
-    const { username, email, password } = this.state;
+    const { username, email, password, img_url } = this.state;
     return (
       <>
         <div className='Register-Title'>Register</div>
@@ -93,7 +94,7 @@ export default class Register extends Component {
           </label>
           <br />
           <label className='emailInput' htmlFor='email'>
-            email:
+            E-mail:
             <input
               required
               type='email'
@@ -118,14 +119,28 @@ export default class Register extends Component {
             />
           </label>
           <br />
-          <label htmlFor='isSitter'>Sitter:</label>
-          <Toggle
-            id='isSitter'
-            defaultChecked={this.state.isSitter}
-            onChange={this.handleToggle}
-          />
+          <label className='imgUrlInput' htmlFor='img_url'>
+            Image Link:
+            <input
+              required
+              type='text'
+              name='img_url'
+              value={img_url}
+              id='imgUrl-input'
+              placeholder='Password...'
+              onChange={this.handleChange}
+            />
+          </label>
           <br />
-          {/* <Link to='/user/login'></Link> */}
+          <label htmlFor='isSitter'>
+            Sitter:
+            <Toggle
+              id='isSitter'
+              defaultChecked={this.state.isSitter}
+              onChange={this.handleToggle}
+            />
+          </label>
+          <br />
           {this.renderError()}
         </form>
       </>
