@@ -1,17 +1,30 @@
-import api from './apiConfig'
-
+import api from "./apiConfig";
 
 export const getAllAppointments = async (pet_id) => {
-  const resp = await api.get(`/pets/${pet_id}/appointments`);
-  return resp.data;
-}
+  try {
+    const resp = await api.get(`/pets/${pet_id}/appointments`);
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const createAppointment = async (pet_id, appointmentData) => {
-  const resp = await api.post(`/pets/${pet_id}/appointments`, { appointment: appointmentData });
-  return resp.data;
-}
+  try {
+    const resp = await api.post(`/pets/${pet_id}/appointments`, {
+      appointment: appointmentData,
+    });
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const deleteAppointment = async (pet_id, id) => {
-  const resp = await api.delete(`/pets/${pet_id}/appointments/${id}`);
-  return resp
-}
+  try {
+    const resp = await api.delete(`/pets/${pet_id}/appointments/${id}`);
+    return resp;
+  } catch (error) {
+    throw error;
+  }
+};

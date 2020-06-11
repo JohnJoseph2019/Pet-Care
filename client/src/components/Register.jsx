@@ -1,5 +1,5 @@
-import React, {Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class Register extends Component {
   state = {
@@ -7,27 +7,64 @@ export default class Register extends Component {
     email: "",
     password: "",
     isSitter: false,
+    isError: false,
+    errorMsg: "",
   };
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
+      isError: false,
+      errorMsg: "",
     });
   };
   handleSubmit = (e) => {
-    const {history} = this.props;
+    const { history } = this.props;
+    const { isError, errorMsg, ...other } = this.state;
     e.preventDefault();
-    this.props.handRegisterSubmit(this.state);
-    history.push("/");
-    this.setState({
-      username: "",
-      email: "",
-      password: "",
-    });
+    this.props
+      .handRegisterSubmit({ ...other })
+      .then(() => history.push("/"))
+      .then(() => {
+        this.setState({
+          username: "",
+          email: "",
+          password: "",
+          isError: false,
+          errorMsg: "",
+        });
+      })
+      .catch((error) => {
+        console.error(error);
+        this.setState({
+          username: "",
+          email: "",
+          password: "",
+          isError: true,
+          errorMsg: "Sign Up Details Invalid",
+        });
+      });
+  };
+
+  renderError = () => {
+    const toggleForm = this.state.isError ? "danger-signup" : "";
+    if (this.state.isError) {
+      return (
+        <button type='submit' className={toggleForm}>
+          {this.state.errorMsg}
+        </button>
+      );
+    } else {
+      return (
+        <button className='login-signup' type='submit'>
+          Sign Up & Log In
+        </button>
+      );
+    }
   };
 
   render() {
-    const {username, email, password} = this.state;
+    const { username, email, password } = this.state;
     return (
       <>
         <div className='Register-Title'>Register</div>
@@ -72,7 +109,7 @@ export default class Register extends Component {
           </label>
           <br />
           <Link to='/user/login'></Link>
-          <button>Submit</button>
+          {this.renderError()}
         </form>
       </>
     );
