@@ -2,5 +2,5 @@
 
 class Appointment < ApplicationRecord
   belongs_to :user, optional: true
-  belongs_to :pet
+  belongs_to :pet, optional: true
 end
