@@ -7,8 +7,7 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
-    render json: @users
+    render json: @users, include: %i[pets appointments]
   end
 
   # GET /users/1

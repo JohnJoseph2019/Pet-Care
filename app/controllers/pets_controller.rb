@@ -1,24 +1,28 @@
 # frozen_string_literal: true
 
 class PetsController < ApplicationController
-  before_action :set_pet, only: %i[show update destroy]
   before_action :authorize_request
+  before_action :set_pet, only: %i[show update destroy]
+  before_action :cleanup, only: [:destroy]
 
   # GET /pets
   def index
-    @pets = Pet.all
-    render json: @pets
+    # @current_user.pets
+    # @pets = Pet.all
+    render json: @current_user.pets, include: :appointments
   end
 
   # GET /pets/1
   def show
-    render json: @pet
+    # @pet = Pet.find(params[:id])
+    render json: @pet, include: :appointments
+    # render json: @current_user.pets.find(params[:id]), include: :appointments
   end
 
   # POST /pets
   def create
     @pet = Pet.new(pet_params)
-    @pet.user = User.find(params[:user_id])
+    @pet.user = @current_user
 
     if @pet.save
       render json: @pet, status: :created
@@ -45,11 +49,16 @@ class PetsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_pet
-    @pet = Pet.find(params[:id])
+    @pet = @current_user.pets.find(params[:id])
+  end
+
+  def cleanup
+    Appointment.where(pet_id: @pet.id, accepted: false).destroy_all
+    Appointment.where(pet_id: @pet.id).update_all(pet_id: '')
   end
 
   # Only allow a trusted parameter "white list" through.
   def pet_params
-    params.require(:pet).permit(:name, :domestice_type, :breed, :age, :img_url)
+    params.require(:pet).permit(:name, :pet_type, :breed, :age, :img_url)
   end
 end
