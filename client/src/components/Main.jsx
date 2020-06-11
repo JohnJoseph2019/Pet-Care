@@ -7,7 +7,7 @@ export default class Main extends Component {
       <div  className="main-div">
         <Route path='/user/login' render={() => (
           <>
-            
+            <h2>Login</h2>
           </>
         )}
         />
