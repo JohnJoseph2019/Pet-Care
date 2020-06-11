@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import {
@@ -19,12 +19,11 @@ export default class App extends Component {
 
   handleLoginSubmit = async (loginData) => {
     const currentUser = await loginUser(loginData);
-    this.setState({currentUser});
+    this.setState({ currentUser });
   };
   handRegisterSubmit = async (registerData) => {
     const currentUser = await registerUser(registerData);
-    this.handleLoginSubmit(currentUser);
-    this.setState({currentUser});
+    this.setState({ currentUser });
   };
 
   handleLogout = () => {
@@ -37,7 +36,7 @@ export default class App extends Component {
 
   handleVerify = async () => {
     const currentUser = await verifyUser();
-    this.setState({currentUser});
+    this.setState({ currentUser });
   };
 
   render() {

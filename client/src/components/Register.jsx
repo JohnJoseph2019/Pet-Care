@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Toggle from "react-toggle";
+import "./Register.css";
 
 export default class Register extends Component {
   state = {
@@ -32,6 +34,7 @@ export default class Register extends Component {
           password: "",
           isError: false,
           errorMsg: "",
+          isSitter: false,
         });
       })
       .catch((error) => {
@@ -40,10 +43,17 @@ export default class Register extends Component {
           username: "",
           email: "",
           password: "",
+          isSitter: false,
           isError: true,
           errorMsg: "Sign Up Details Invalid",
         });
       });
+  };
+
+  handleToggle = () => {
+    this.setState((prevState) => ({
+      isSitter: !prevState.isSitter,
+    }));
   };
 
   renderError = () => {
@@ -108,7 +118,14 @@ export default class Register extends Component {
             />
           </label>
           <br />
-          <Link to='/user/login'></Link>
+          <label htmlFor='isSitter'>Sitter:</label>
+          <Toggle
+            id='isSitter'
+            defaultChecked={this.state.isSitter}
+            onChange={this.handleToggle}
+          />
+          <br />
+          {/* <Link to='/user/login'></Link> */}
           {this.renderError()}
         </form>
       </>
