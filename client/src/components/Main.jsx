@@ -1,7 +1,8 @@
-import React, {Component} from "react";
-import {Route} from "react-router-dom";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
+import ShowPets from "./ShowPets";
 
 export default class Main extends Component {
   render() {
@@ -23,6 +24,12 @@ export default class Main extends Component {
               {...props}
               handRegisterSubmit={this.props.handRegisterSubmit}
             />
+          )}
+        />
+        <Route
+          path='/pets'
+          render={(props) => (
+            <ShowPets {...props} currentUser={this.state.currentUser} />
           )}
         />
       </div>

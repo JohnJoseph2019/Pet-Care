@@ -49,6 +49,7 @@ export default class App extends Component {
         <Main
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}
+          currentUser={this.state.currentUser}
         />
       </>
     );
