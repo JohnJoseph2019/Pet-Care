@@ -78,8 +78,8 @@ export default class Register extends Component {
     const { username, email, password, img_url } = this.state;
     return (
       <>
-        <div className='Register-Title'>Register</div>
-        <form onSubmit={this.handleSubmit}>
+        <form className='RegisterOuterDiv' onSubmit={this.handleSubmit}>
+          <div className='Register-Title'>Register</div>
           <label className='usernameInput' htmlFor='username'>
             Username:
             <input
