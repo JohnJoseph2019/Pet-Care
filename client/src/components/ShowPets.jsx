@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ShowPets(props) {
   const { currentUser } = props;
-  console.log(currentUser);
+  console.log(props);
   return (
     <div className='MainShowPets'>
       <div className='WelcomeTitleShowPets'>

@@ -8,7 +8,7 @@ class PetsController < ApplicationController
   def index
     # @current_user.pets
     # @pets = Pet.all
-    render json: @current_user.pets, include: :appointments
+    render json: @current_user.pets
   end
 
   # GET /pets/1
