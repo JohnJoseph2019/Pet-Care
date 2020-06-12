@@ -46,7 +46,7 @@ export default class Login extends Component {
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "danger" : "";
+    const toggleForm = this.state.isError ? "danger" : "logIn";
     if (this.state.isError) {
       return (
         <button type='submit' className={toggleForm}>
@@ -55,7 +55,7 @@ export default class Login extends Component {
       );
     } else {
       return (
-        <button className='logIn' type='submit'>
+        <button type='submit' className={toggleForm}>
           Log In
         </button>
       );
@@ -67,7 +67,7 @@ export default class Login extends Component {
     return (
       <>
         <form className='LoginOuterDiv' onSubmit={this.handleSubmit}>
-          <div className='Login-Title'>Welcome Back</div>
+          <div className='LoginTitle'>Welcome Back</div>
           <div className='LoginInnerDiv'>
             <label className='usernameInput' htmlFor='username'>
               <input

@@ -58,7 +58,7 @@ export default class Register extends Component {
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "danger-signup" : "";
+    const toggleForm = this.state.isError ? "dangerRegister" : "SignUpRegister";
     if (this.state.isError) {
       return (
         <button type='submit' className={toggleForm}>
@@ -67,7 +67,7 @@ export default class Register extends Component {
       );
     } else {
       return (
-        <button className='SignUpRegister' type='submit'>
+        <button type='submit' className={toggleForm}>
           Sign Up
         </button>
       );
@@ -120,7 +120,6 @@ export default class Register extends Component {
             <label className='imgUrlSignUP' htmlFor='img_url'>
               Image Link:
               <input
-                required
                 type='text'
                 name='img_url'
                 value={img_url}

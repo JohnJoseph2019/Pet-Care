@@ -83,6 +83,17 @@ a {
   margin-right: 5px;
   font-size: 28px;
 }
+.dangerRegister {
+  margin: 25px 0 20px 0;
+  height: 50px;
+  font-size: 22px;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #a00000;
+  border: 1px solid #a00000;
+  border-radius: 2px;
+  letter-spacing: 1.3px;
+}
 
 .react-toggle {
   touch-action: pan-x;

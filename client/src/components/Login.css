@@ -9,7 +9,7 @@
   font-family: "Comic Sans MS", cursive, sans-serif;
   background-color: white;
 }
-.Login-Title {
+.LoginTitle {
   margin: 50px 0 15px 0;
   text-align: left;
   color: black;
@@ -78,6 +78,17 @@ a {
   color: #054e72;
   font-size: 20px;
   letter-spacing: -1px;
+}
+.danger {
+  margin: 28px 0 20px 0;
+  height: 50px;
+  font-size: 22px;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #a00000;
+  border: 1px solid #a00000;
+  border-radius: 2px;
+  letter-spacing: 1.3px;
 }
 /* a:hover {
   color: red;
