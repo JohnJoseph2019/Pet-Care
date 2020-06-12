@@ -11,7 +11,14 @@ export default class Main extends Component {
   };
 
   componentDidMount() {
-    this.getPets();
+    if (this.props.currentUser) {
+      this.getPets();
+    }
+  }
+  componentDidUpdate(prevProps) {
+    if (prevProps.currentUser !== this.props.currentUser) {
+      this.getPets();
+    }
   }
   getPets = async () => {
     const pets = await getAllPets();

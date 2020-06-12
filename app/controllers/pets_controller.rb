@@ -6,9 +6,9 @@ class PetsController < ApplicationController
   before_action :cleanup, only: [:destroy]
   # GET /pets
   def index
-    @pets = Pet.where(user_id: @current_user.id)
-    # render json: @current_user.pets
-    render json: @pets
+    # @pets = Pet.where(user_id: @current_user.id)
+    render json: @current_user.pets
+    # render json: @pets
   end
 
   # GET /pets/1
