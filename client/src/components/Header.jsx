@@ -7,15 +7,14 @@ export default function Header(props) {
   return (
     <div className='header-outDiv'>
       <div className='headerTitle'>PET CARE</div>
-      {/* {props.currentUser ? (
+      {props.currentUser ? (
         <>
           {props.currentUser.username}
           <button onClick={props.handleLogout}>Log Out</button>
         </>
       ) : (
-        <Link to='/user/login'>Login/Register</Link>
+        ""
       )}
-      <hr /> */}
     </div>
   );
 }
