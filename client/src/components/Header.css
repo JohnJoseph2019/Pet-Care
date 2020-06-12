@@ -1,0 +1,12 @@
+.header-outDiv {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  background-color: rgb(244, 203, 187);
+}
+.headerTitle {
+  align-self: center;
+  color: #2e95b5;
+  font-size: 66px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
