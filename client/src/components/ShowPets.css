@@ -1,0 +1,26 @@
+body {
+  background-color: honeydew;
+}
+.MainShowPets {
+  background-color: honeydew;
+  width: 100vw;
+  height: 100vw;
+  padding-left: 7.7%;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #054e72;
+}
+.WelcomeTitleShowPets {
+  margin-top: 20px;
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+.PetTitle {
+  font-size: 40px;
+  letter-spacing: 2px;
+}
+.ShowPetsOutterContainer {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  justify-content: flex-start;
+}

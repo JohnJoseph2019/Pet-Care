@@ -1,0 +1,10 @@
+.PetOuterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 10px 10px 0 0;
+  border: 1px solid grey;
+  height: 200px;
+  width: 200px;
+}
