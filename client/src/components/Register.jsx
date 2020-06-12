@@ -27,7 +27,7 @@ export default class Register extends Component {
     e.preventDefault();
     this.props
       .handRegisterSubmit({ ...other })
-      .then(() => history.push("/"))
+      .then(() => history.push("/pets"))
       .then(() => {
         this.setState({
           username: "",

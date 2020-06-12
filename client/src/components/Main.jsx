@@ -1,21 +1,26 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Login from "./Login";
 import Register from "./Register";
 import ShowPets from "./ShowPets";
 
 export default class Main extends Component {
   render() {
+    const { currentUser } = this.props;
     return (
       <div className='main-div'>
         <Route
           path='/user/login'
-          render={(props) => (
-            <Login
-              {...props}
-              handleLoginSubmit={this.props.handleLoginSubmit}
-            />
-          )}
+          render={(props) =>
+            !currentUser ? (
+              <Login
+                {...props}
+                handleLoginSubmit={this.props.handleLoginSubmit}
+              />
+            ) : (
+              <Redirect to='/pets' />
+            )
+          }
         />
         <Route
           path='/user/register'
@@ -28,9 +33,7 @@ export default class Main extends Component {
         />
         <Route
           path='/pets'
-          render={(props) => (
-            <ShowPets {...props} currentUser={this.state.currentUser} />
-          )}
+          render={(props) => <ShowPets currentUser={currentUser} />}
         />
       </div>
     );

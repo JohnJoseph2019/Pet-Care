@@ -24,15 +24,15 @@ export default class Login extends Component {
     const { isError, errorMsg, ...other } = this.state;
     this.props
       .handleLoginSubmit({ ...other })
-      .then(() => history.push("/"))
-      .then(() => {
-        this.setState({
-          username: "",
-          password: "",
-          isError: false,
-          errorMsg: "",
-        });
-      })
+      .then(() => history.push("/pets"))
+      // .then(() => {
+      //   this.setState({
+      //     username: "",
+      //     password: "",
+      //     isError: false,
+      //     errorMsg: "",
+      //   });
+      // })
       .catch((error) => {
         console.error(error);
         this.setState({
