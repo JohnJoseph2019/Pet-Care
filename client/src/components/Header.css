@@ -6,8 +6,9 @@
   background-color: rgb(244, 203, 187);
 }
 .headerTitle {
-  align-self: center;
+  margin: auto auto;
   color: #2e95b5;
-  font-size: 66px;
+  font-size: 60px;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  min-width: max-content;
 }
