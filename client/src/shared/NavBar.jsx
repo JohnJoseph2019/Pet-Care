@@ -8,8 +8,8 @@ export default function NavBar(props) {
       <NavLink className='linkHeader' to='/'>
         Add Pet
       </NavLink>
-      <NavLink className='linkHeader' to='/'>
-        Show Sitter
+      <NavLink className='linkHeader' to='/pets'>
+        Show Pets
       </NavLink>
       <NavLink className='linkHeader' to='#' onClick={props.handleLogout}>
         Log Out

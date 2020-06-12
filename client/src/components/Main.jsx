@@ -15,10 +15,12 @@ export default class Main extends Component {
   }
   getPets = async () => {
     const pets = await getAllPets();
+    console.log("PETS", pets);
     this.setState({ pets });
   };
   render() {
     const { currentUser } = this.props;
+    console.log("In Main", currentUser, this.state.pets);
     return (
       <div className='main-div'>
         <Switch>
@@ -46,17 +48,9 @@ export default class Main extends Component {
           />
           <Route
             path='/pets'
-            render={(props) =>
-              currentUser ? (
-                <ShowPets
-                  {...props}
-                  currentUser={currentUser}
-                  pets={this.state.pets}
-                />
-              ) : (
-                <Redirect to='/user/login' />
-              )
-            }
+            render={() => (
+              <ShowPets currentUser={currentUser} pets={this.state.pets} />
+            )}
           />
         </Switch>
       </div>

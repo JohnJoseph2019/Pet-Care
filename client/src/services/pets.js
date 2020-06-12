@@ -3,6 +3,7 @@ import api from "./apiConfig";
 export const getAllPets = async () => {
   try {
     const resp = await api.get("/pets");
+    console.log("sssss", resp);
     return resp.data;
   } catch (error) {
     throw error;

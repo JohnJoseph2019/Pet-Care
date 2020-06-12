@@ -24,7 +24,7 @@ export default class Login extends Component {
     const { isError, errorMsg, ...other } = this.state;
     this.props
       .handleLoginSubmit({ ...other })
-      .then(() => history.push("/pets"))
+      .then(() => history.push("/"))
       // .then(() => {
       //   this.setState({
       //     username: "",
