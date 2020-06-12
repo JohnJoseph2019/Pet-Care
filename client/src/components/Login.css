@@ -1,0 +1,113 @@
+.LoginOuterDiv {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 450px;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  margin: 70px auto;
+  border: 1px solid grey;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: white;
+}
+.Login-Title {
+  margin: 50px 0 15px 0;
+  text-align: left;
+  color: black;
+  font-size: 35px;
+  text-shadow: 1px 3px grey;
+}
+.LoginInnerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 25px 0 25px;
+}
+.usernameInput {
+  margin: 25px 0 0 0;
+}
+.passwordInput {
+  margin: 10px 0 0 0;
+}
+.log-in {
+  margin: 28px 0 20px 0;
+  height: 50px;
+  font-size: 22px;
+  color: white;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #4094bf;
+  border: 1px solid #4094bf;
+  border-radius: 2px;
+  letter-spacing: 1.3px;
+}
+.passwordInput > input {
+  width: 450px;
+  height: 45px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 25px;
+  color: black;
+  padding: 10px 0 10px 20px;
+  border: 2px solid lightgrey;
+  border-radius: 2px;
+}
+.usernameInput > input {
+  width: 450px;
+  height: 45px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-size: 25px;
+  color: black;
+  padding: 10px 0 10px 20px;
+  border: 2px solid lightgrey;
+  border-radius: 2px;
+}
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: gray;
+
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.LoginToSignUp {
+  font-size: 20px;
+  width: max-content;
+  color: #656565;
+}
+
+a {
+  width: max-content;
+  text-decoration: none;
+  color: #054e72;
+  font-size: 20px;
+  letter-spacing: -1px;
+}
+/* a:hover {
+  color: red;
+  animation: swing 2s ease;
+}
+
+@keyframes swing {
+  15% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  30% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  50% {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+  }
+  65% {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+  }
+  80% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+} */

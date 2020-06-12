@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 export default class Login extends Component {
   state = {
@@ -65,37 +66,37 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
       <>
-        <div className='Login-Title'>Welcome Back</div>
-        <form onSubmit={this.handleSubmit}>
-          <label className='usernameInput' htmlFor='username'>
-            Username:
-            <input
-              required
-              type='text'
-              name='username'
-              value={username}
-              id='username-input'
-              placeholder='Username...'
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <label className='passwordInput' htmlFor='username'>
-            Password:
-            <input
-              required
-              type='password'
-              name='password'
-              value={password}
-              id='password-input'
-              placeholder='Password...'
-              onChange={this.handleChange}
-            />
-          </label>
-          <br />
-          <Link to='/user/register'>Register</Link>
-
-          {this.renderError()}
+        <form className='LoginOuterDiv' onSubmit={this.handleSubmit}>
+          <div className='Login-Title'>Welcome Back</div>
+          <div className='LoginInnerDiv'>
+            <label className='usernameInput' htmlFor='username'>
+              <input
+                required
+                type='text'
+                name='username'
+                value={username}
+                id='username-input'
+                placeholder='Username...'
+                onChange={this.handleChange}
+              />
+            </label>
+            <label className='passwordInput' htmlFor='username'>
+              <input
+                required
+                type='password'
+                name='password'
+                value={password}
+                id='password-input'
+                placeholder='Password...'
+                onChange={this.handleChange}
+              />
+            </label>
+            {this.renderError()}
+          </div>
+          <div className='LoginToSignUp'>
+            Don't have an Account?
+            <Link to='/user/register'>Sign Up</Link>
+          </div>
         </form>
       </>
     );
