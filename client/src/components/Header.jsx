@@ -6,7 +6,7 @@ export default function Header(props) {
   const { currentUser } = props;
   // console.log(currentUser);
   return (
-    <div className='header-outDiv'>
+    <div className='headerOutDiv'>
       <div className={currentUser ? "headerTitle userNav" : "headerTitle"}>
         PET CARE
       </div>
