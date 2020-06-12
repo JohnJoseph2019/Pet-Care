@@ -67,3 +67,6 @@ yarn-debug.log*
 /storage/*
 !/storage/.keep
 /public/uploads
+
+
+SECRET_KEY='aas56ythtyhgyygt'
