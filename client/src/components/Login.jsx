@@ -55,7 +55,7 @@ export default class Login extends Component {
       );
     } else {
       return (
-        <button className='log-in' type='submit'>
+        <button className='logIn' type='submit'>
           Log In
         </button>
       );
