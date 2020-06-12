@@ -1,26 +1,46 @@
-import api from './apiConfig';
+import api from "./apiConfig";
 
 export const getAllPets = async () => {
-  const resp = await api.get('/pets');
-  return resp.data;
-}
+  try {
+    const resp = await api.get("/pets");
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const getOnePet = async (id) => {
-  const resp = await api.get(`/pets/${id}`);
-  return resp.data;
-}
+  try {
+    const resp = await api.get(`/pets/${id}`);
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const createPet = async (petData) => {
-  const resp = await api.post('/pets', { pet: petData });
-  return resp.data;
-}
+  try {
+    const resp = await api.post("/pets", { pet: petData });
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const updatePet = async (id, petData) => {
-  const resp = await api.put(`/pets/${id}`, { pet: petData });
-  return resp.data;
-}
+  try {
+    const resp = await api.put(`/pets/${id}`, { pet: petData });
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};
 
 export const deletePet = async (id) => {
-  const resp = await api.delete(`/pets/${id}`);
-  return resp
-}
+  try {
+    const resp = await api.delete(`/pets/${id}`);
+    return resp;
+  } catch (error) {
+    throw error;
+  }
+};
