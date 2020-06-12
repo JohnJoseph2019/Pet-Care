@@ -1,20 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Header.css";
+import NavBar from "../shared/NavBar";
+import { Redirect } from "react-router-dom";
 
 export default function Header(props) {
-  console.log(props.currenUser);
+  const { currentUser } = props;
+  console.log(currentUser);
   return (
-    <div className='header-outDiv'>
-      <div className='headerTitle'>PET CARE</div>
-      {props.currentUser ? (
-        <>
-          {props.currentUser.username}
-          <button onClick={props.handleLogout}>Log Out</button>
-        </>
-      ) : (
-        ""
-      )}
-    </div>
+    <>
+      {!currentUser ? <Redirect to='/user/login' /> : ""}
+      <div className='header-outDiv'>
+        <div className={currentUser ? "headerTitle userNav" : "headerTitle"}>
+          PET CARE
+        </div>
+        {currentUser ? <NavBar handleLogout={props.handleLogout} /> : ""}
+      </div>
+    </>
   );
 }
