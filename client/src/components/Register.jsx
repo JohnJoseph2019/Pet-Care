@@ -127,7 +127,7 @@ export default class Register extends Component {
               name='img_url'
               value={img_url}
               id='imgUrl-input'
-              placeholder='Password...'
+              placeholder='Image link'
               onChange={this.handleChange}
             />
           </label>
