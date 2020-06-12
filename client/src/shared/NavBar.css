@@ -1,0 +1,23 @@
+.navHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.linkHeader {
+  font-size: 18px;
+  margin: 0px 40px 0 0;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.userNav {
+  margin-left: 8%;
+}
+
+@media screen and (max-width: 750px) {
+  .linkHeader:first-of-type {
+    margin-left: 5px;
+  }
+}
