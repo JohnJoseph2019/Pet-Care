@@ -6,15 +6,13 @@ import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
+import PetEdit from './PetEdit';
 
 export default class Main extends Component {
   state = {
     pets: [],
   };
-  // Soleil Thing
-  // clearEverything = () => {
-  //   this.setState({ pets: [] });
-  // };
+
   componentDidMount() {
     if (this.props.currentUser) {
       this.getPets();
@@ -101,13 +99,25 @@ export default class Main extends Component {
           <Route
             exact
             path='/pets/:id'
+            render={props => {
+              const catId = props.match.params.id;
+              const currentPet = this.state.pets.find(pet => pet.id === parseInt(catId));
+              return (
+                <PetDetail
+                  {...props}
+                  currentPet={currentPet}
+                  pets={this.state.pets}
+                  currentUser={currentUser}
+                  removePet={this.removePet}
+                />
+              );
+            }}
+          />
+          <Route
+            exact
+            path='/pets/:edit/edit'
             render={props => (
-              <PetDetail
-                {...props}
-                editPet={this.editPet}
-                pets={this.state.pets}
-                currentUser={currentUser}
-              />
+              <PetEdit {...props} editPet={this.editPet} removePet={this.removePet} />
             )}
           />
         </Switch>

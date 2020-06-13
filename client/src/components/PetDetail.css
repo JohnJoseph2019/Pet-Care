@@ -49,8 +49,9 @@
   letter-spacing: 1.3px;
   cursor: pointer;
   margin-right: 5px;
+  width: 80px;
 }
-.deleteButton {
+/* .deleteButton {
   font-size: 15px;
   color: white;
   font-family: 'Comic Sans MS', cursive, sans-serif;
@@ -60,4 +61,9 @@
   letter-spacing: 1.3px;
   cursor: pointer;
   margin-left: 5px;
+  margin-top: 4px;
+} */
+.buttonLink {
+  margin-top: 40px;
+  display: flex;
 }
