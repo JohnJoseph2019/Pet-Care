@@ -5,6 +5,7 @@ import Register from './Register';
 import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet } from '../services/pets';
 import AddPet from './AddPet';
+import PetDetail from './PetDetail';
 
 export default class Main extends Component {
   state = {
@@ -49,6 +50,7 @@ export default class Main extends Component {
       <div className='main-div'>
         <Switch>
           <Route
+            exact
             path='/user/login'
             render={props =>
               !currentUser ? (
@@ -59,12 +61,14 @@ export default class Main extends Component {
             }
           />
           <Route
+            exact
             path='/user/register'
             render={props => (
               <Register {...props} handRegisterSubmit={this.props.handRegisterSubmit} />
             )}
           />
           <Route
+            exact
             path='/pets'
             render={() =>
               currentUser ? (
@@ -75,12 +79,14 @@ export default class Main extends Component {
             }
           />
           <Route
-            path='/pets'
-            render={() => <ShowPets currentUser={currentUser} pets={this.state.pets} />}
-          />
-          <Route
+            exact
             path='/add-pet'
             render={props => <AddPet {...props} createPet={this.createPet} />}
+          />
+          <Route
+            exact
+            path='/pets/:id'
+            render={props => <PetDetail {...props} editPet={this.editPet} pets={this.state.pets} />}
           />
         </Switch>
       </div>
