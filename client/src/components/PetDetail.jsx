@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import './PetDetail.css';
-import { getOnePet } from '../services/pets';
-import { Link } from 'react-router-dom';
 
 export default class PetDetail extends Component {
   // state = {
@@ -18,7 +16,9 @@ export default class PetDetail extends Component {
   //   this.setState({ ...pet });
   // };
   // componentDidMount() {
-  //   this.getOne();
+  //   if (this.props.currentUser) {
+  //     this.getOne();
+  //   }
   // }
 
   // componentDidUpdate(prevProps) {
@@ -27,14 +27,14 @@ export default class PetDetail extends Component {
   //   }
   // }
 
-  // componentDidUpdate(prevState) {
-  //   if (prevState.state !== this.state) {
+  // componentDidUpdate(_prevProps, prevState) {
+  //   if (prevState !== this.state) {
   //     this.getOne();
   //   }
   // }
 
   render() {
-    console.log('render.....', this.props);
+    // console.log('render.....', this.props);
     // const { name, pet_type, breed, age, img_url } = this.state;
     const { currentPet } = this.props;
     console.log(currentPet);
@@ -42,31 +42,36 @@ export default class PetDetail extends Component {
     return (
       <>
         {currentPet && (
-          <>
-            <h1>{currentPet.name}</h1>
-          </>
-        )}
-        {/* {currentPet && (
           <div className='petDetail'>
-            <img id='img' className='petDetailImage' src={img_url} alt={pet_type} />
+            <img
+              id='img'
+              className='petDetailImage'
+              src={currentPet.img_url}
+              alt={currentPet.pet_type}
+            />
             <div className='items-details'>
               <div className='LabelDetailLabel'>Name:</div>
-              <div className='LabelDetail'>{name}</div>
+              <div className='LabelDetail'>{currentPet.name}</div>
               <div className='LabelDetailLabel'>Age:</div>
-              <div className='LabelDetail'>{age}</div>
+              <div className='LabelDetail'>{currentPet.age}</div>
               <div className='LabelDetailLabel'>Breed:</div>
-              <div className='LabelDetail'>{breed}</div>
+              <div className='LabelDetail'>{currentPet.breed}</div>
               <div className='LabelDetailLabel'>Type:</div>
-              <div className='LabelDetail'>{pet_type}</div>
+              <div className='LabelDetail'>{currentPet.pet_type}</div>
               <div className='buttonsDetails'>
-                <Link className='buttonLink' to='/pets/:id/edit'>
-                  <button className='editButton'>edit</button>
-                </Link>
-                <button className='deleteButton'>delete</button>
+                <button className='editButton'>edit</button>
+                <button
+                  className='deleteButton'
+                  onClick={() => {
+                    this.props.removePet(currentPet.id);
+                    this.props.history.push('/pets');
+                  }}>
+                  delete
+                </button>
               </div>
             </div>
           </div>
-        )} */}
+        )}
       </>
     );
   }

@@ -11,6 +11,11 @@ import PetEdit from './PetEdit';
 export default class Main extends Component {
   state = {
     pets: [],
+    formData: {
+      name: '',
+      breed: '',
+      img_url: '',
+    },
   };
 
   componentDidMount() {
@@ -41,14 +46,13 @@ export default class Main extends Component {
         return pet.id === parseInt(petId) ? updatedCat : pet;
       }),
     }));
-    // this.props.history.push(`/cats/${id}`);
+    return <Redirect to={`/pets/${petId}`} />;
   };
   removePet = async petId => {
     await deletePet(petId);
     this.setState(prevState => ({
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));
-    // this.props.history.push('/cats');
   };
   render() {
     const { currentUser } = this.props;
@@ -102,15 +106,7 @@ export default class Main extends Component {
             render={props => {
               const catId = props.match.params.id;
               const currentPet = this.state.pets.find(pet => pet.id === parseInt(catId));
-              return (
-                <PetDetail
-                  {...props}
-                  currentPet={currentPet}
-                  pets={this.state.pets}
-                  currentUser={currentUser}
-                  removePet={this.removePet}
-                />
-              );
+              return <PetDetail {...props} currentPet={currentPet} removePet={this.removePet} />;
             }}
           />
           <Route
