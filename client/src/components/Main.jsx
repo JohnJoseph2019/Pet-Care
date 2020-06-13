@@ -3,7 +3,7 @@ import { Route, Redirect, Switch } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
 import ShowPets from './ShowPets';
-import { getAllPets, createPet, updatePet } from '../services/pets';
+import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 
@@ -11,10 +11,12 @@ export default class Main extends Component {
   state = {
     pets: [],
   };
-
+  // Soleil Thing
+  // clearEverything = () => {
+  //   this.setState({ pets: [] });
+  // };
   componentDidMount() {
     if (this.props.currentUser) {
-      console.log('in main componentDifMount');
       this.getPets();
     }
   }
@@ -42,6 +44,13 @@ export default class Main extends Component {
       }),
     }));
     // this.props.history.push(`/cats/${id}`);
+  };
+  removePet = async petId => {
+    await deletePet(petId);
+    this.setState(prevState => ({
+      pets: prevState.pets.filter(pet => pet.id !== petId),
+    }));
+    // this.props.history.push('/cats');
   };
   render() {
     const { currentUser } = this.props;
@@ -81,12 +90,25 @@ export default class Main extends Component {
           <Route
             exact
             path='/add-pet'
-            render={props => <AddPet {...props} createPet={this.createPet} />}
+            render={props =>
+              currentUser ? (
+                <AddPet {...props} createPet={this.createPet} />
+              ) : (
+                <Redirect to='/user/login' />
+              )
+            }
           />
           <Route
             exact
             path='/pets/:id'
-            render={props => <PetDetail {...props} editPet={this.editPet} pets={this.state.pets} />}
+            render={props => (
+              <PetDetail
+                {...props}
+                editPet={this.editPet}
+                pets={this.state.pets}
+                currentUser={currentUser}
+              />
+            )}
           />
         </Switch>
       </div>

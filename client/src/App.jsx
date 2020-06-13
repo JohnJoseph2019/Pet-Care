@@ -27,6 +27,7 @@ export default class App extends Component {
     });
     localStorage.clear();
     removeToken();
+    // this.props.history.push('/user/login');
   };
 
   handleVerify = async () => {
@@ -47,3 +48,5 @@ export default class App extends Component {
     );
   }
 }
+
+// export default withRouter(App);

@@ -1,52 +1,44 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import "./Login.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './Login.css';
 
 export default class Login extends Component {
   state = {
-    username: "",
-    password: "",
+    username: '',
+    password: '',
     isError: false,
-    errorMsg: "",
+    errorMsg: '',
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
       isError: false,
-      errorMsg: "",
+      errorMsg: '',
     });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     const { history } = this.props;
     const { isError, errorMsg, ...other } = this.state;
     this.props
       .handleLoginSubmit({ ...other })
-      .then(() => history.push("/pets"))
-      // .then(() => {
-      //   this.setState({
-      //     username: "",
-      //     password: "",
-      //     isError: false,
-      //     errorMsg: "",
-      //   });
-      // })
-      .catch((error) => {
+      .then(() => history.push('/pets'))
+      .catch(error => {
         console.error(error);
         this.setState({
           isError: true,
-          errorMsg: "Invalid Credentials",
-          email: "",
-          password: "",
-          username: "",
+          errorMsg: 'Invalid Credentials',
+          email: '',
+          password: '',
+          username: '',
         });
       });
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "danger" : "logIn";
+    const toggleForm = this.state.isError ? 'danger' : 'logIn';
     if (this.state.isError) {
       return (
         <button type='submit' className={toggleForm}>

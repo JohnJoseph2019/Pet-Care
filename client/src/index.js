@@ -7,7 +7,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 ReactDOM.render(
   <Router>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Router>,
   document.getElementById('root')
 );
