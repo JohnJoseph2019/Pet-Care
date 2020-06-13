@@ -1,12 +1,7 @@
-import React, { Component } from "react";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import {
-  loginUser,
-  registerUser,
-  removeToken,
-  verifyUser,
-} from "./services/auth";
+import React, { Component } from 'react';
+import Header from './components/Header';
+import Main from './components/Main';
+import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
 
 export default class App extends Component {
   state = {
@@ -17,11 +12,11 @@ export default class App extends Component {
     this.handleVerify();
   }
 
-  handleLoginSubmit = async (loginData) => {
+  handleLoginSubmit = async loginData => {
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
   };
-  handRegisterSubmit = async (registerData) => {
+  handRegisterSubmit = async registerData => {
     const currentUser = await registerUser(registerData);
     this.setState({ currentUser });
   };
@@ -42,10 +37,7 @@ export default class App extends Component {
   render() {
     return (
       <>
-        <Header
-          currentUser={this.state.currentUser}
-          handleLogout={this.handleLogout}
-        />
+        <Header currentUser={this.state.currentUser} handleLogout={this.handleLogout} />
         <Main
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}

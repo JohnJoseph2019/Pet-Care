@@ -1,16 +1,15 @@
-import api from "./apiConfig";
+import api from './apiConfig';
 
 export const getAllPets = async () => {
   try {
-    const resp = await api.get("/pets");
-    console.log("sssss", resp);
+    const resp = await api.get('/pets');
     return resp.data;
   } catch (error) {
     throw error;
   }
 };
 
-export const getOnePet = async (id) => {
+export const getOnePet = async id => {
   try {
     const resp = await api.get(`/pets/${id}`);
     return resp.data;
@@ -19,9 +18,9 @@ export const getOnePet = async (id) => {
   }
 };
 
-export const createPet = async (petData) => {
+export const createPet = async petData => {
   try {
-    const resp = await api.post("/pets", { pet: petData });
+    const resp = await api.post('/pets', { pet: petData });
     return resp.data;
   } catch (error) {
     throw error;
@@ -37,7 +36,7 @@ export const updatePet = async (id, petData) => {
   }
 };
 
-export const deletePet = async (id) => {
+export const deletePet = async id => {
   try {
     const resp = await api.delete(`/pets/${id}`);
     return resp;

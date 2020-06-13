@@ -1,64 +1,54 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import Toggle from "react-toggle";
-import "./Register.css";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Toggle from 'react-toggle';
+import './Register.css';
 
 export default class Register extends Component {
   state = {
-    username: "",
-    email: "",
-    password: "",
-    img_url: "",
+    username: '',
+    email: '',
+    password: '',
+    img_url: '',
     isSitter: false,
     isError: false,
-    errorMsg: "",
+    errorMsg: '',
   };
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value,
       isError: false,
-      errorMsg: "",
+      errorMsg: '',
     });
   };
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     const { history } = this.props;
     const { isError, errorMsg, ...other } = this.state;
     e.preventDefault();
     this.props
       .handRegisterSubmit({ ...other })
-      .then(() => history.push("/pets"))
-      .then(() => {
-        this.setState({
-          username: "",
-          email: "",
-          password: "",
-          isError: false,
-          errorMsg: "",
-          isSitter: false,
-        });
-      })
-      .catch((error) => {
+      .then(() => history.push('/pets'))
+      .catch(error => {
         console.error(error);
         this.setState({
-          username: "",
-          email: "",
-          password: "",
+          username: '',
+          email: '',
+          password: '',
           isSitter: false,
           isError: true,
-          errorMsg: "Sign Up Details Invalid",
+          errorMsg: 'Sign Up Details Invalid',
         });
       });
   };
 
   handleToggle = () => {
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       isSitter: !prevState.isSitter,
     }));
   };
 
   renderError = () => {
-    const toggleForm = this.state.isError ? "dangerRegister" : "SignUpRegister";
+    const toggleForm = this.state.isError ? 'dangerRegister' : 'SignUpRegister';
     if (this.state.isError) {
       return (
         <button type='submit' className={toggleForm}>

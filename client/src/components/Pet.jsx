@@ -1,8 +1,8 @@
-import React from "react";
-import "./Pet.css";
+import React from 'react';
+import './Pet.css';
 
 export default function Pet(props) {
-  console.log(props);
+  // console.log(props);
   return (
     <div className='petOuterContainer'>
       {/* <div
