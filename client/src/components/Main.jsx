@@ -15,6 +15,8 @@ export default class Main extends Component {
       name: '',
       breed: '',
       img_url: '',
+      pet_type: '',
+      age: 0,
     },
   };
 
@@ -38,15 +40,27 @@ export default class Main extends Component {
       pets: [...prevState.pets, newPet],
     }));
   };
-
-  editPet = async (petId, editedCat) => {
-    const updatedCat = await updatePet(petId, editedCat);
+  setPetEdit = petData => {
+    const { name, breed, img_url, age, pet_type } = petData;
+    this.setState({
+      formData: {
+        name,
+        breed,
+        img_url,
+        pet_type,
+        age,
+      },
+    });
+    // this.props.history.push(`/cats/${catData.id}/edit`);
+  };
+  editPet = async petId => {
+    const updatedPet = await updatePet(petId, this.state.formData);
     this.setState(prevState => ({
       pets: prevState.pets.map(pet => {
-        return pet.id === parseInt(petId) ? updatedCat : pet;
+        return pet.id === parseInt(petId) ? updatedPet : pet;
       }),
     }));
-    return <Redirect to={`/pets/${petId}`} />;
+    // return <Redirect to={`/pets/${petId}`} />;
   };
   removePet = async petId => {
     await deletePet(petId);
@@ -54,6 +68,7 @@ export default class Main extends Component {
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));
   };
+
   render() {
     const { currentUser } = this.props;
     // console.log('In Main', currentUser, this.state.pets);
@@ -106,7 +121,14 @@ export default class Main extends Component {
             render={props => {
               const catId = props.match.params.id;
               const currentPet = this.state.pets.find(pet => pet.id === parseInt(catId));
-              return <PetDetail {...props} currentPet={currentPet} removePet={this.removePet} />;
+              return (
+                <PetDetail
+                  {...props}
+                  currentPet={currentPet}
+                  removePet={this.removePet}
+                  setPetEdit={this.setPetEdit}
+                />
+              );
             }}
           />
           <Route

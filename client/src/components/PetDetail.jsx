@@ -59,7 +59,14 @@ export default class PetDetail extends Component {
               <div className='LabelDetailLabel'>Type:</div>
               <div className='LabelDetail'>{currentPet.pet_type}</div>
               <div className='buttonsDetails'>
-                <button className='editButton'>edit</button>
+                <button
+                  className='editButton'
+                  onClick={() => {
+                    this.props.setPetEdit(currentPet);
+                    this.props.history.push(`/pets/${currentPet.id}/edit`);
+                  }}>
+                  edit
+                </button>
                 <button
                   className='deleteButton'
                   onClick={() => {
