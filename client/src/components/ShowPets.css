@@ -21,6 +21,7 @@ body {
 .ShowPetsOutterContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  flex-wrap: wrap;
+  justify-content: flex-start;
   padding-right: 80px;
 }
