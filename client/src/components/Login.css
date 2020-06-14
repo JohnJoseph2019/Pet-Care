@@ -6,7 +6,7 @@
   align-items: center;
   margin: 70px auto;
   border: 1px solid grey;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   background-color: white;
 }
 .LoginTitle {
@@ -33,7 +33,7 @@
   height: 50px;
   font-size: 22px;
   color: white;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   background-color: #4094bf;
   border: 1px solid #4094bf;
   border-radius: 2px;
@@ -43,7 +43,7 @@
 .passwordInput > input {
   width: 450px;
   height: 45px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 25px;
   color: black;
   padding: 10px 0 10px 20px;
@@ -53,7 +53,7 @@
 .usernameInput > input {
   width: 450px;
   height: 45px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 25px;
   color: black;
   padding: 10px 0 10px 20px;
@@ -63,8 +63,7 @@
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: gray;
-
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .LoginToSignUp {
@@ -85,7 +84,7 @@ a {
   height: 50px;
   font-size: 22px;
   color: white;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
   background-color: #a00000;
   border: 1px solid #a00000;
   border-radius: 2px;
