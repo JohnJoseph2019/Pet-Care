@@ -1,23 +1,24 @@
 .pageTitle {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   font-size: 30px;
   font-weight: bold;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   color: #054e72;
-  margin: 10px 0 10px 0;
+  margin: 10px 0 10px 40px;
 }
 .appointmentContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin: 20px auto;
   height: max-content;
+  margin-left: 50px;
   /* border: 1px solid lightgrey; */
-  width: 550px;
+  /* width: 550px; */
 }
 .apppointmentInnercontainer {
   display: flex;
