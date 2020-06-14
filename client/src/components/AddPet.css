@@ -1,0 +1,49 @@
+.CreateDogTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054e72;
+  margin: 10px 0 10px 0;
+}
+
+.CreateDogOuterDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  height: max-content;
+  border: 1px solid lightgrey;
+  width: 500px;
+}
+label.lableAddPet {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin-top: 10px;
+}
+.petAddPet {
+  margin-top: 10px;
+}
+.CreateDogInnerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.createPetButton {
+  margin: 28px 0 20px 0;
+  height: 50px;
+  font-size: 22px;
+  color: white;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #4094bf;
+  border: 1px solid #4094bf;
+  border-radius: 2px;
+  letter-spacing: 1.3px;
+  cursor: pointer;
+}

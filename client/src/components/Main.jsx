@@ -25,9 +25,11 @@ export default class Main extends Component {
       this.getPets();
     }
   }
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
+      console.log('in did update', prevState);
+      // this.setState({ formData: prevState.formData });
     }
   }
   getPets = async () => {
@@ -80,7 +82,7 @@ export default class Main extends Component {
 
   render() {
     const { currentUser } = this.props;
-    // console.log('In Main', currentUser, this.state.pets);
+    console.log('In Main', this.props);
     return (
       <div className='main-div'>
         <Switch>
@@ -88,7 +90,7 @@ export default class Main extends Component {
             exact
             path='/user/login'
             render={props =>
-              !currentUser ? (
+              currentUser === null ? (
                 <Login {...props} handleLoginSubmit={this.props.handleLoginSubmit} />
               ) : (
                 <Redirect to='/pets' />
@@ -128,8 +130,8 @@ export default class Main extends Component {
             exact
             path='/pets/:id'
             render={props => {
-              const catId = props.match.params.id;
-              const currentPet = this.state.pets.find(pet => pet.id === parseInt(catId));
+              const petId = props.match.params.id;
+              const currentPet = this.state.pets.find(pet => pet.id === parseInt(petId));
               return (
                 <PetDetail
                   {...props}
@@ -145,6 +147,7 @@ export default class Main extends Component {
             path='/pets/:id/edit'
             render={props => {
               const petId = props.match.params.id;
+              const currentPet = this.state.formData;
               return (
                 <PetEdit
                   {...props}
@@ -152,6 +155,8 @@ export default class Main extends Component {
                   petData={this.state.formData}
                   editSubmit={this.editSubmit}
                   handleChange={this.handleChange}
+                  // currentUser={this.props.currentUser}
+                  // pets={this.state.pets}
                 />
               );
             }}

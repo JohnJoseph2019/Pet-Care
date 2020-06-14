@@ -39,7 +39,7 @@ export default class AddPet extends Component {
       });
   };
   renderError = () => {
-    const toggleForm = this.state.isError ? 'dangerCreateDog' : 'CreateDog';
+    const toggleForm = this.state.isError ? 'dangerCreatePet' : 'createPetButton';
     if (this.state.isError) {
       return (
         <button type='submit' className={toggleForm}>
@@ -49,7 +49,7 @@ export default class AddPet extends Component {
     } else {
       return (
         <button type='submit' className={toggleForm}>
-          Sign Up
+          Add Pet
         </button>
       );
     }
@@ -64,7 +64,7 @@ export default class AddPet extends Component {
 
         <form className='CreateDogOuterDiv' onSubmit={this.handleSubmit}>
           <div className='CreateDogInnerDiv'>
-            <label className='nameCreateDog' htmlFor='name-input'>
+            <label className='lableAddPet' htmlFor='name-input'>
               Name:
               <input
                 required
@@ -74,9 +74,10 @@ export default class AddPet extends Component {
                 id='name-input'
                 placeholder='Name...'
                 onChange={this.handleChange}
+                className='petAddPet'
               />
             </label>
-            <label className='petType' htmlFor='pet_type'>
+            <label className='lableAddPet' htmlFor='pet_type'>
               Pet Type:
               <input
                 required
@@ -86,9 +87,10 @@ export default class AddPet extends Component {
                 id='pet_type'
                 placeholder='Pet type...'
                 onChange={this.handleChange}
+                className='petAddPet'
               />
             </label>
-            <label className='breedCreatePet' htmlFor='breed'>
+            <label className='lableAddPet' htmlFor='breed'>
               Breed:
               <input
                 required
@@ -98,9 +100,10 @@ export default class AddPet extends Component {
                 id='breed'
                 placeholder='Breed...'
                 onChange={this.handleChange}
+                className='petAddPet'
               />
             </label>
-            <label className='ageCreatePet' htmlFor='age'>
+            <label className='lableAddPet' htmlFor='age'>
               Age:
               <input
                 type='number'
@@ -109,9 +112,10 @@ export default class AddPet extends Component {
                 id='age'
                 // placeholder='Image link'
                 onChange={this.handleChange}
+                className='petAddPet'
               />
             </label>
-            <label className='imageCreatePet' htmlFor='img_url'>
+            <label className='lableAddPet' htmlFor='img_url'>
               Age:
               <input
                 type='text'
@@ -120,10 +124,11 @@ export default class AddPet extends Component {
                 id='img_url'
                 placeholder='Image link'
                 onChange={this.handleChange}
+                className='petAddPet'
               />
             </label>
-            {this.renderError()}
           </div>
+          {this.renderError()}
         </form>
       </>
     );
