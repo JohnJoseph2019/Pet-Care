@@ -4,10 +4,11 @@ import Login from './Login';
 import Register from './Register';
 import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
+import { createAppointment } from '../services/appointments';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
-import Appointments from './Appointments';
+import NewAppointments from './NewAppointments';
 
 export default class Main extends Component {
   state = {
@@ -20,6 +21,13 @@ export default class Main extends Component {
       age: 0,
     },
     appointments: [],
+    formAppointmentData: {
+      restriction_note: '',
+      accepted: false,
+      start_date: '',
+      end_date: '',
+    },
+    Pet_id: null,
   };
 
   componentDidMount() {
@@ -30,10 +38,11 @@ export default class Main extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
-      console.log('in did update', prevState);
+      // console.log('in did update', prevState);
       // this.setState({ formPetData: prevState.formPetData });
     }
   }
+  /************** Pets  ****/
   getPets = async () => {
     const pets = await getAllPets();
     this.setState({ pets });
@@ -81,18 +90,42 @@ export default class Main extends Component {
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));
   };
+  /************** Appointment ****/
+  createAppointment = async () => {
+    const newAppointment = await createAppointment(
+      this.state.Pet_id,
+      this.state.formAppointmentData
+    );
+    console.log('createdAppointment info here: ', newAppointment);
+  };
+  appointmentHandleChange = e => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      formAppointmentData: {
+        ...prevState.formAppointmentData,
+        [name]: value,
+      },
+    }));
+  };
+  handleSelected = selectedOption => {
+    this.setState({
+      [selectedOption.name]: selectedOption.value,
+    });
+  };
 
   render() {
     const { currentUser, logOut } = this.props;
     console.log('In Main', this.props);
+    console.log('In Main pets', this.state.pets);
+
     return (
       <div className='main-div'>
         <Switch>
           <Route
             exact
-            path='/'
+            path='/user/login'
             render={props =>
-              !currentUser || logOut ? (
+              !currentUser ? (
                 <Login {...props} handleLoginSubmit={this.props.handleLoginSubmit} />
               ) : (
                 <Redirect to='/pets' />
@@ -113,7 +146,7 @@ export default class Main extends Component {
               currentUser ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
               ) : (
-                <Redirect to='/' />
+                <Redirect to='/user/login' />
               )
             }
           />
@@ -159,7 +192,20 @@ export default class Main extends Component {
               );
             }}
           />
-          <Route exact path='/appointments' render={() => <Appointments />} />
+          <Route
+            exact
+            path='/appointments/new'
+            render={props => (
+              <NewAppointments
+                {...props}
+                pets={this.state.pets}
+                appointmentData={this.state.formAppointmentData}
+                createAppointment={this.createAppointment}
+                appointmentHandleChange={this.appointmentHandleChange}
+                handleSelected={this.handleSelected}
+              />
+            )}
+          />
         </Switch>
       </div>
     );
