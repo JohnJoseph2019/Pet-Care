@@ -6,6 +6,7 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 export default class App extends Component {
   state = {
     currentUser: null,
+    logOut: true,
   };
 
   componentDidMount() {
@@ -22,17 +23,20 @@ export default class App extends Component {
   };
 
   handleLogout = () => {
-    this.setState({
-      currentUser: null,
-    });
     localStorage.clear();
     removeToken();
+    this.setState({
+      currentUser: null,
+      logOut: true,
+    });
+
     // this.props.history.push('/user/login');
   };
 
   handleVerify = async () => {
     const currentUser = await verifyUser();
-    this.setState({ currentUser });
+    const logOut = false;
+    this.setState({ currentUser, logOut });
   };
 
   render() {

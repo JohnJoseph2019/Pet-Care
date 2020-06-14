@@ -11,13 +11,14 @@ import PetEdit from './PetEdit';
 export default class Main extends Component {
   state = {
     pets: [],
-    formData: {
+    formPetData: {
       name: '',
       breed: '',
       img_url: '',
       pet_type: '',
       age: 0,
     },
+    appointments: [],
   };
 
   componentDidMount() {
@@ -29,7 +30,7 @@ export default class Main extends Component {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
       console.log('in did update', prevState);
-      // this.setState({ formData: prevState.formData });
+      // this.setState({ formPetData: prevState.formPetData });
     }
   }
   getPets = async () => {
@@ -45,7 +46,7 @@ export default class Main extends Component {
   setPetEdit = petData => {
     const { name, breed, img_url, age, pet_type } = petData;
     this.setState({
-      formData: {
+      formPetData: {
         name,
         breed,
         img_url,
@@ -56,7 +57,7 @@ export default class Main extends Component {
     // this.props.history.push(`/cats/${catData.id}/edit`);
   };
   editSubmit = async petId => {
-    const updatedPet = await updatePet(petId, this.state.formData);
+    const updatedPet = await updatePet(petId, this.state.formPetData);
     this.setState(prevState => ({
       pets: prevState.pets.map(pet => {
         return pet.id === parseInt(petId) ? updatedPet : pet;
@@ -67,8 +68,8 @@ export default class Main extends Component {
   handleChange = e => {
     const { name, value } = e.target;
     this.setState(prevState => ({
-      formData: {
-        ...prevState.formData,
+      formPetData: {
+        ...prevState.formPetData,
         [name]: value,
       },
     }));
@@ -81,16 +82,16 @@ export default class Main extends Component {
   };
 
   render() {
-    const { currentUser } = this.props;
+    const { currentUser, logOut } = this.props;
     console.log('In Main', this.props);
     return (
       <div className='main-div'>
         <Switch>
           <Route
             exact
-            path='/user/login'
+            path='/'
             render={props =>
-              currentUser === null ? (
+              !currentUser || logOut ? (
                 <Login {...props} handleLoginSubmit={this.props.handleLoginSubmit} />
               ) : (
                 <Redirect to='/pets' />
@@ -111,7 +112,7 @@ export default class Main extends Component {
               currentUser ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
               ) : (
-                <Redirect to='/user/login' />
+                <Redirect to='/' />
               )
             }
           />
@@ -119,11 +120,7 @@ export default class Main extends Component {
             exact
             path='/add-pet'
             render={props =>
-              currentUser ? (
-                <AddPet {...props} createPet={this.createPet} />
-              ) : (
-                <Redirect to='/user/login' />
-              )
+              currentUser ? <AddPet {...props} createPet={this.createPet} /> : <Redirect to='/' />
             }
           />
           <Route
@@ -147,12 +144,12 @@ export default class Main extends Component {
             path='/pets/:id/edit'
             render={props => {
               const petId = props.match.params.id;
-              const currentPet = this.state.formData;
+              // const currentPet = this.state.formPetData;
               return (
                 <PetEdit
                   {...props}
                   petId={petId}
-                  petData={this.state.formData}
+                  petData={this.state.formPetData}
                   editSubmit={this.editSubmit}
                   handleChange={this.handleChange}
                   // currentUser={this.props.currentUser}
