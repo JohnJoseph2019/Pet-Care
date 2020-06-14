@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './PetDetail.css';
 
 export default class PetDetail extends Component {
@@ -39,6 +40,7 @@ export default class PetDetail extends Component {
     const { currentPet } = this.props;
     console.log(currentPet);
     // const { name, pet_type, breed, age, img_url } = currentPet;
+    console.log(this.props);
     return (
       <>
         {currentPet && (
@@ -60,7 +62,7 @@ export default class PetDetail extends Component {
               <div className='LabelDetail'>{currentPet.pet_type}</div>
               <div className='buttonsDetails'>
                 <button
-                  className='editButton'
+                  className='deleteButton'
                   onClick={() => {
                     this.props.setPetEdit(currentPet);
                     this.props.history.push(`/pets/${currentPet.id}/edit`);
@@ -75,6 +77,16 @@ export default class PetDetail extends Component {
                   }}>
                   delete
                 </button>
+                {/* <Link to={`/pets/${currentPet.id}/appointments`}> */}
+                <button
+                  className='petAppointmentButton'
+                  onClick={() => {
+                    this.props.getAllPetsAppointments(currentPet.id);
+                    this.props.history.push(`/pets/${currentPet.id}/appointments`);
+                  }}>
+                  Appointments
+                </button>
+                {/* </Link> */}
               </div>
             </div>
           </div>

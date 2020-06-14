@@ -4,11 +4,12 @@ import Login from './Login';
 import Register from './Register';
 import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
-import { createAppointment } from '../services/appointments';
+import { createAppointment, getAllAppointments } from '../services/appointments';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
 import NewAppointments from './NewAppointments';
+import AppointmentsPage from './AppointmentsPage';
 
 export default class Main extends Component {
   state = {
@@ -20,7 +21,7 @@ export default class Main extends Component {
       pet_type: '',
       age: 0,
     },
-    appointments: [],
+    appointments: null,
     formAppointmentData: {
       restriction_note: '',
       accepted: false,
@@ -38,11 +39,13 @@ export default class Main extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
-      // console.log('in did update', prevState);
+      // console.log('MAIN DID UPDATE:----------', prevState);
+      // console.log(window.location.pathname);
+      // console.log(this.props);
       // this.setState({ formPetData: prevState.formPetData });
     }
   }
-  /************** Pets  ****/
+  /************** PETS  ********************************************************************/
   getPets = async () => {
     const pets = await getAllPets();
     this.setState({ pets });
@@ -90,7 +93,7 @@ export default class Main extends Component {
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));
   };
-  /************** Appointment ****/
+  /************** APPOINTMENTS  ********************************************************************/
   createAppointment = async () => {
     const newAppointment = await createAppointment(
       this.state.Pet_id,
@@ -112,11 +115,15 @@ export default class Main extends Component {
       [selectedOption.name]: selectedOption.value,
     });
   };
+  getAllPetsAppointments = async petId => {
+    const appointments = await getAllAppointments(petId);
+    this.setState({ appointments });
+  };
 
   render() {
-    const { currentUser, logOut } = this.props;
-    console.log('In Main', this.props);
-    console.log('In Main pets', this.state.pets);
+    const { currentUser } = this.props;
+    // console.log('In Main', this.props);
+    // console.log('In Main pets', this.state.pets);
 
     return (
       <div className='main-div'>
@@ -169,6 +176,7 @@ export default class Main extends Component {
                   currentPet={currentPet}
                   removePet={this.removePet}
                   setPetEdit={this.setPetEdit}
+                  getAllPetsAppointments={this.getAllPetsAppointments}
                 />
               );
             }}
@@ -186,8 +194,6 @@ export default class Main extends Component {
                   petData={this.state.formPetData}
                   editSubmit={this.editSubmit}
                   handleChange={this.handleChange}
-                  // currentUser={this.props.currentUser}
-                  // pets={this.state.pets}
                 />
               );
             }}
@@ -205,6 +211,22 @@ export default class Main extends Component {
                 handleSelected={this.handleSelected}
               />
             )}
+          />
+          <Route
+            exact
+            path='/pets/:id/appointments'
+            render={props => {
+              const petId = props.match.params.id;
+              // this.getAllPetsAppointments(petId);
+              return (
+                <AppointmentsPage
+                  petId={petId}
+                  appointments={this.state.appointments}
+                  getAllPetsAppointments={this.getAllPetsAppointments}
+                  pets={this.state.pets}
+                />
+              );
+            }}
           />
         </Switch>
       </div>
