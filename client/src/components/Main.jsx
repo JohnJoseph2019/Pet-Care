@@ -130,7 +130,7 @@ export default class Main extends Component {
         <Switch>
           <Route
             exact
-            path='/user/login'
+            path='/'
             render={props =>
               !currentUser ? (
                 <Login {...props} handleLoginSubmit={this.props.handleLoginSubmit} />
@@ -153,7 +153,7 @@ export default class Main extends Component {
               currentUser ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
               ) : (
-                <Redirect to='/user/login' />
+                <Redirect to='/' />
               )
             }
           />
@@ -164,23 +164,27 @@ export default class Main extends Component {
               currentUser ? <AddPet {...props} createPet={this.createPet} /> : <Redirect to='/' />
             }
           />
-          <Route
-            exact
-            path='/pets/:id'
-            render={props => {
-              const petId = props.match.params.id;
-              const currentPet = this.state.pets.find(pet => pet.id === parseInt(petId));
-              return (
-                <PetDetail
-                  {...props}
-                  currentPet={currentPet}
-                  removePet={this.removePet}
-                  setPetEdit={this.setPetEdit}
-                  getAllPetsAppointments={this.getAllPetsAppointments}
-                />
-              );
-            }}
-          />
+          {currentUser ? (
+            <Route
+              exact
+              path='/pets/:id'
+              render={props => {
+                const petId = props.match.params.id;
+                const currentPet = this.state.pets.find(pet => pet.id === parseInt(petId));
+                return (
+                  <PetDetail
+                    {...props}
+                    currentPet={currentPet}
+                    removePet={this.removePet}
+                    setPetEdit={this.setPetEdit}
+                    getAllPetsAppointments={this.getAllPetsAppointments}
+                  />
+                );
+              }}
+            />
+          ) : (
+            <Redirect to='/' />
+          )}
           <Route
             exact
             path='/pets/:id/edit'
