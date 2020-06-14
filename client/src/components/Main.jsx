@@ -53,14 +53,23 @@ export default class Main extends Component {
     });
     // this.props.history.push(`/cats/${catData.id}/edit`);
   };
-  editPet = async petId => {
+  editSubmit = async petId => {
     const updatedPet = await updatePet(petId, this.state.formData);
     this.setState(prevState => ({
       pets: prevState.pets.map(pet => {
         return pet.id === parseInt(petId) ? updatedPet : pet;
       }),
     }));
-    // return <Redirect to={`/pets/${petId}`} />;
+    // this.props.history.push(`/cats/${id}`);
+  };
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      formData: {
+        ...prevState.formData,
+        [name]: value,
+      },
+    }));
   };
   removePet = async petId => {
     await deletePet(petId);
@@ -133,10 +142,19 @@ export default class Main extends Component {
           />
           <Route
             exact
-            path='/pets/:edit/edit'
-            render={props => (
-              <PetEdit {...props} editPet={this.editPet} removePet={this.removePet} />
-            )}
+            path='/pets/:id/edit'
+            render={props => {
+              const petId = props.match.params.id;
+              return (
+                <PetEdit
+                  {...props}
+                  petId={petId}
+                  petData={this.state.formData}
+                  editSubmit={this.editSubmit}
+                  handleChange={this.handleChange}
+                />
+              );
+            }}
           />
         </Switch>
       </div>
