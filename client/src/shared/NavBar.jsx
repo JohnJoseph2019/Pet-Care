@@ -5,6 +5,9 @@ import './NavBar.css';
 export default function NavBar(props) {
   return (
     <nav className='navHeader'>
+      <NavLink className='linkHeader' to='/appointments'>
+        Appointments
+      </NavLink>
       <NavLink className='linkHeader' to='/add-pet'>
         Add Pet
       </NavLink>

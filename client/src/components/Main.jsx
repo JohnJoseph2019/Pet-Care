@@ -7,6 +7,7 @@ import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
+import Appointments from './Appointments';
 
 export default class Main extends Component {
   state = {
@@ -158,6 +159,7 @@ export default class Main extends Component {
               );
             }}
           />
+          <Route exact path='/appointments' render={() => <Appointments />} />
         </Switch>
       </div>
     );
