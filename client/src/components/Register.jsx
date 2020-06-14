@@ -130,7 +130,7 @@ export default class Register extends Component {
           </div>
           <div className='SignUPToSignUp'>
             Already have an Account?
-            <Link to='/user/login'>Log In</Link>
+            <Link to='/'>Log In</Link>
           </div>
         </form>
       </>
