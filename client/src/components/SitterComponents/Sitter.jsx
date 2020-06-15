@@ -26,6 +26,13 @@ export default class Sitter extends Component {
                     <span className='spanAppointment'>Note:</span>
                     <div className='restrictionAppointment'>{app.restriction_note}</div>
                   </div>
+                  <form className='checkBoxMain' onSubmit={() => alert('you click me')}>
+                    <div className='inlineBox'>
+                      <input type='checkbox' id='true' name='accepted' value='true' />
+                      <label htmlFor='true'>accept</label>
+                    </div>
+                    <button>Save</button>
+                  </form>
                 </div>
               </div>
             );

@@ -37,3 +37,14 @@ export const getAllOfTheAppointments = async () => {
     throw error;
   }
 };
+
+export const updateAppointment = async (pet_id, appointmentId, appointmentData) => {
+  try {
+    const resp = await api.put(`/pets/${pet_id}/appointments/${appointmentId}`, {
+      appointment: appointmentData,
+    });
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};

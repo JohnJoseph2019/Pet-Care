@@ -9,13 +9,15 @@ import {
   getAllAppointments,
   deleteAppointment,
   getAllOfTheAppointments,
+  updateAppointment,
 } from '../services/appointments';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
 import NewAppointments from './NewAppointments';
 import AppointmentsPage from './AppointmentsPage';
-import Sitter from './Sitter';
+import Sitter from './SitterComponents/Sitter';
+import SitterAppointments from './SitterComponents/SitterAppointments';
 
 export default class Main extends Component {
   state = {
@@ -137,18 +139,14 @@ export default class Main extends Component {
     const appointments = await getAllOfTheAppointments();
     this.setState({ appointments });
   };
-
-  // clearShit = () => {
-  //   console.log('in clear shit');
-  //   this.setState({
-  //     formAppointmentData: {
-  //       restriction_note: '',
-  //       accepted: false,
-  //       start_date: '',
-  //       end_date: '',
-  //     },
-  //   });
-  // };
+  updateAppointment = async (petId, appId, appData) => {
+    const updatedAppointment = await updateAppointment(petId, appId, appData);
+    this.setState(prevState => ({
+      appointments: prevState.appointments.map(appointment => {
+        return appointment.id === parseInt(appId) ? updatedAppointment : appointment;
+      }),
+    }));
+  };
   render() {
     const { currentUser } = this.props;
     // console.log('In Main', this.props);
@@ -276,6 +274,17 @@ export default class Main extends Component {
               <Sitter
                 appointments={this.state.appointments}
                 pets={this.state.pets}
+                currentUser={this.props.currentUser}
+                updateAppointment={this.updateAppointment}
+              />
+            )}
+          />
+          <Route
+            exact
+            path='/sitter/:id'
+            render={() => (
+              <SitterAppointments
+                appointments={this.state.appointments}
                 currentUser={this.props.currentUser}
               />
             )}

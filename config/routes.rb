@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # Original
   resources :users
   resources :pets do
-    resources :appointments, only: %i[index create destroy]
+    resources :appointments, only: %i[index create destroy update]
   end
 
   get '/appointments' => 'appointments#all_appointments'
