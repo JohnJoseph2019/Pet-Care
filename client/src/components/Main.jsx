@@ -124,7 +124,6 @@ export default class Main extends Component {
       appointments: prevState.appointments.filter(app => app.id !== petId),
     }));
   };
-
   render() {
     const { currentUser } = this.props;
     console.log('In Main', this.props);
@@ -157,7 +156,7 @@ export default class Main extends Component {
             render={() =>
               currentUser ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
-              ) : (
+              ) : (c
                 <Redirect to='/' />
               )
             }
