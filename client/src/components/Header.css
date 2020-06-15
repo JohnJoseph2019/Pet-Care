@@ -2,13 +2,33 @@
   display: flex;
   justify-content: center;
   height: 150px;
-  width: 100%;
+  width: 100vm;
   background-color: rgb(244, 203, 187);
 }
 .headerTitle {
   margin: auto auto;
   color: #2e95b5;
   font-size: 60px;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  min-width: max-content;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  width: max-content;
+}
+@media screen and (max-width: 935px) {
+  .headerOutDiv {
+    height: 130px;
+  }
+  .headerTitle {
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .headerOutDiv {
+    height: 125px;
+  }
+  .headerTitle {
+    font-size: 45px;
+    font-weight: bold;
+  }
 }

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 .linkHeader {
@@ -19,5 +19,11 @@
 @media screen and (max-width: 750px) {
   .linkHeader:first-of-type {
     margin-left: 5px;
+  }
+}
+@media screen and (max-width: 935px) {
+  .linkHeader {
+    font-size: 15px;
+    margin: 0 10px 0 0;
   }
 }

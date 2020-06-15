@@ -59,7 +59,7 @@ export default class Login extends Component {
     return (
       <>
         <form className='LoginOuterDiv' onSubmit={this.handleSubmit}>
-          <div className='LoginTitle'>Welcome Back</div>
+          <div className='LoginTitleW'>Welcome Back</div>
           <div className='LoginInnerDiv'>
             <label className='usernameInput' htmlFor='username'>
               <input

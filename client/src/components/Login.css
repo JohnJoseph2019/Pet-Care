@@ -9,7 +9,7 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
   background-color: white;
 }
-.LoginTitle {
+.LoginTitleW {
   margin: 50px 0 15px 0;
   text-align: left;
   color: black;
@@ -91,34 +91,62 @@ a {
   letter-spacing: 1.3px;
   cursor: pointer;
 }
-/* a:hover {
-  color: red;
-  animation: swing 2s ease;
+
+@media screen and (max-width: 600px) {
+  .LoginOuterDiv {
+    width: 400px;
+    height: 300px;
+  }
+  .LoginTitleW {
+    margin: 20px 0 10px 0;
+    color: black;
+    font-size: 20px;
+    text-shadow: 1px 3px grey;
+  }
+  .usernameInput > input {
+    margin: 0 auto;
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    padding: 8px 0 8px 15px;
+  }
+  .usernameInput {
+    margin: 2px;
+  }
+  .passwordInput {
+    margin: 5px;
+  }
+  .passwordInput > input {
+    margin: 0 auto;
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    padding: 8px 0 8px 15px;
+  }
+  .logIn {
+    align-self: center;
+    margin: 10px 0 15px 0;
+    height: 45px;
+    font-size: 18px;
+    width: 120px;
+  }
+  .LoginInnerDiv {
+    padding: 0 25px 0 25px;
+    margin: 0;
+  }
+  .LoginToSignUp {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .LoginToSignUp > a {
+    position: relative;
+    left: 15px;
+    font-size: 20px;
+  }
 }
 
-@keyframes swing {
-  15% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-  30% {
-    -webkit-transform: translateX(-10px);
-    transform: translateX(-10px);
-  }
-  50% {
-    -webkit-transform: translateX(5px);
-    transform: translateX(5px);
-  }
-  65% {
-    -webkit-transform: translateX(-5px);
-    transform: translateX(-5px);
-  }
-  80% {
-    -webkit-transform: translateX(10px);
-    transform: translateX(10px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-} */
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  color: gray;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
