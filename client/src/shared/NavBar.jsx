@@ -3,17 +3,29 @@ import { NavLink, Redirect } from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar(props) {
+  console.log('In header ', props);
+  const { currentUser } = props;
   return (
     <nav className='navHeader'>
-      <NavLink className='linkHeader' to='/appointments/new'>
-        New Appointment
-      </NavLink>
-      <NavLink className='linkHeader' to='/add-pet'>
-        Add Pet
-      </NavLink>
-      <NavLink className='linkHeader' to='/pets'>
-        Show Pets
-      </NavLink>
+      {currentUser.isSitter === false ? (
+        <>
+          <NavLink className='linkHeader' to='/appointments/new'>
+            New Appointment
+          </NavLink>
+          <NavLink className='linkHeader' to='/add-pet'>
+            Add Pet
+          </NavLink>
+          <NavLink className='linkHeader' to='/pets'>
+            Show Pets
+          </NavLink>
+        </>
+      ) : (
+        <>
+          <NavLink className='linkHeader' to='/appointments/new'>
+            My Appointments
+          </NavLink>
+        </>
+      )}
       <NavLink
         className='linkHeader'
         to='#'

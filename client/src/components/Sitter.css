@@ -28,8 +28,8 @@
   margin: 50px auto;
   margin-left: 50px;
   overflow-x: scroll;
-  height: 700px;
-  width: max-content;
+  /* height: 500px; */
+  /* width: max-content; */
   border: 1px solid bisque;
 }
 .sitterOuterContainer {

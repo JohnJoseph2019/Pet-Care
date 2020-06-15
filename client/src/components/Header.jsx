@@ -9,7 +9,7 @@ export default function Header(props) {
   return (
     <div className='headerOutDiv'>
       <div className={currentUser ? 'headerTitle userNav' : 'headerTitle'}>PET CARE</div>
-      {currentUser ? <NavBar handleLogout={props.handleLogout} /> : ''}
+      {currentUser ? <NavBar handleLogout={props.handleLogout} currentUser={currentUser} /> : ''}
     </div>
   );
 }
