@@ -10,6 +10,7 @@ import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
 import NewAppointments from './NewAppointments';
 import AppointmentsPage from './AppointmentsPage';
+import Sitter from './Sitter';
 
 export default class Main extends Component {
   state = {
@@ -21,7 +22,7 @@ export default class Main extends Component {
       pet_type: '',
       age: 0,
     },
-    appointments: null,
+    appointments: [],
     formAppointmentData: {
       restriction_note: '',
       accepted: false,
@@ -165,8 +166,10 @@ export default class Main extends Component {
             exact
             path='/pets'
             render={() =>
-              currentUser ? (
+              currentUser && !currentUser.isSitter ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
+              ) : currentUser && currentUser.isSitter ? (
+                <Redirect to='/sitter' />
               ) : (
                 <Redirect to='/' />
               )
@@ -252,6 +255,7 @@ export default class Main extends Component {
               );
             }}
           />
+          <Route exact path='/sitter' render={() => <Sitter />} />
         </Switch>
       </div>
     );

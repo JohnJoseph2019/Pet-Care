@@ -53,5 +53,3 @@ export default class App extends Component {
     );
   }
 }
-
-// export default withRouter(App);

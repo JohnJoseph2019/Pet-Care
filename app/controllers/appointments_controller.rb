@@ -3,13 +3,20 @@
 class AppointmentsController < ApplicationController
   before_action :authorize_request
   before_action :set_appointment, only: :destroy
-  # GET pets/:pet_id/appointments
+
+  # GET /appointments
+  def all_appointments
+    @appointments = Appointment.all
+    render json: @appointments
+  end
+
+  # GET appointments/:pet_id/appointments
   def index
     @appointments = Appointment.where(pet_id: params[:pet_id])
     render json: @appointments
   end
 
-  # POST pets/:pet_id/appointments
+  # POST appointments/:pet_id/appointments
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.pet = Pet.find(params[:pet_id])
@@ -21,7 +28,7 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DELETE pets/:pet_id/appointments/1
+  # DELETE appointments/:pet_id/appointments/1
   def destroy
     @appointment.destroy
   end

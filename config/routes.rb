@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :appointments, only: %i[index create destroy]
   end
 
+  get '/appointments' => 'appointments#all_appointments'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
