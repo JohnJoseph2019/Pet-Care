@@ -156,7 +156,7 @@ export default class Main extends Component {
             render={() =>
               currentUser ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
-              ) : (c
+              ) : (
                 <Redirect to='/' />
               )
             }
