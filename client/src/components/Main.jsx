@@ -99,7 +99,14 @@ export default class Main extends Component {
       this.state.Pet_id,
       this.state.formAppointmentData
     );
-
+    // this.setState({
+    //   formAppointmentData: {
+    //     restriction_note: '',
+    //     accepted: false,
+    //     start_date: '',
+    //     end_date: '',
+    //   },
+    // });
     console.log('createdAppointment info here: ', newAppointment);
   };
   appointmentHandleChange = e => {

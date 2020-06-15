@@ -66,3 +66,15 @@
 .restrictionAppointment {
   font-size: 13px;
 }
+.appDelete {
+  display: flex;
+  align-self: flex-end;
+  background-color: #054e72;
+  color: white;
+  border: 1px solid #4094bf;
+  border-radius: 2px;
+  letter-spacing: 1.3px;
+  cursor: pointer;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  margin-right: 10px;
+}

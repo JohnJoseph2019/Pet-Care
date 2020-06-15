@@ -22,7 +22,7 @@ export default class Appointments extends Component {
       petId,
     } = this.props;
     const options = pets.map(pet => {
-      return { value: pet.id, name: 'Pet_id', label: pet.name };
+      return { value: pet.id, name: 'Pet_id', label: pet.name, key: pet.id };
     });
 
     console.log('ooptiones', options);
@@ -37,7 +37,7 @@ export default class Appointments extends Component {
           onSubmit={event => {
             event.preventDefault();
             createAppointment();
-            history.push(`/pets`);
+            history.push(`/pets/${petId}`);
           }}>
           <div className='appointmentInnerDiv'>
             <label className='lableAppointment' htmlFor='start_date'>
@@ -82,6 +82,7 @@ export default class Appointments extends Component {
             <label className='lableAppointment' htmlFor='petId'>
               Pet:
               <Select
+                key='1'
                 className='selectPet'
                 placeholder='Pets'
                 options={options}
