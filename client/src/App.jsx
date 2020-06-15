@@ -6,7 +6,7 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 export default class App extends Component {
   state = {
     currentUser: null,
-    logOut: true,
+    logIn: false,
   };
 
   componentDidMount() {
@@ -15,20 +15,20 @@ export default class App extends Component {
 
   handleLoginSubmit = async loginData => {
     const currentUser = await loginUser(loginData);
-    this.setState({ currentUser });
+    this.setState({ currentUser, logIn: true });
   };
   handRegisterSubmit = async registerData => {
     const currentUser = await registerUser(registerData);
-    this.setState({ currentUser });
+    this.setState({ currentUser, logIn: true });
   };
 
   handleLogout = () => {
     localStorage.clear();
-    removeToken();
     this.setState({
       currentUser: null,
-      logOut: true,
+      logIn: false,
     });
+    removeToken();
 
     // this.props.history.push('/user/login');
   };
@@ -47,6 +47,7 @@ export default class App extends Component {
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}
           currentUser={this.state.currentUser}
+          logIn={this.state.logIn}
         />
       </>
     );

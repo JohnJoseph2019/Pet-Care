@@ -39,12 +39,9 @@ export default class Main extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
-      // console.log('MAIN DID UPDATE:----------', prevState);
-      // console.log(window.location.pathname);
-      // console.log(this.props);
-      // this.setState({ formPetData: prevState.formPetData });
     }
   }
+
   /************** PETS  ********************************************************************/
   getPets = async () => {
     const pets = await getAllPets();
