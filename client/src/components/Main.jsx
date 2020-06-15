@@ -139,8 +139,8 @@ export default class Main extends Component {
     const appointments = await getAllOfTheAppointments();
     this.setState({ appointments });
   };
-  updateAppointment = async (petId, appId, appData) => {
-    const updatedAppointment = await updateAppointment(petId, appId, appData);
+  updateApp = async (petId, appId, appData) => {
+    const updatedAppointment = await updateAppointment(parseInt(petId), parseInt(appId), appData);
     this.setState(prevState => ({
       appointments: prevState.appointments.map(appointment => {
         return appointment.id === parseInt(appId) ? updatedAppointment : appointment;
@@ -270,12 +270,13 @@ export default class Main extends Component {
           <Route
             exact
             path='/sitter'
-            render={() => (
+            render={props => (
               <Sitter
+                {...props}
                 appointments={this.state.appointments}
                 pets={this.state.pets}
                 currentUser={this.props.currentUser}
-                updateAppointment={this.updateAppointment}
+                updateApp={this.updateApp}
               />
             )}
           />

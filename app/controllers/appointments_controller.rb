@@ -2,21 +2,15 @@
 
 class AppointmentsController < ApplicationController
   before_action :authorize_request
-  before_action :set_appointment, only: :destroy
+  before_action :set_appointment, only: %i[destroy update]
 
-  # GET /appointments
-  def all_appointments
-    @appointments = Appointment.all
-    render json: @appointments
-  end
-
-  # GET appointments/:pet_id/appointments
+  # GET pets/:pet_id/appointments
   def index
     @appointments = Appointment.where(pet_id: params[:pet_id])
     render json: @appointments
   end
 
-  # POST appointments/:pet_id/appointments
+  # POST pets/:pet_id/appointments
   def create
     @appointment = Appointment.new(appointment_params)
     @appointment.pet = Pet.find(params[:pet_id])
@@ -26,6 +20,22 @@ class AppointmentsController < ApplicationController
     else
       render json: @appointment.errors, status: :unprocessable_entity
     end
+  end
+
+  # PATCH/PUT pets/:pet_id/appointments/:id
+  def update
+    @appointment.user = @current_user
+    if @appointment.update(appointment_params)
+      render json: @appointment
+    else
+      render json: @appointment.errors, status: :unprocessable_entity
+    end
+  end
+
+  # GET /appointments
+  def all_appointments
+    @appointments = Appointment.all
+    render json: @appointments
   end
 
   # DELETE appointments/:pet_id/appointments/1

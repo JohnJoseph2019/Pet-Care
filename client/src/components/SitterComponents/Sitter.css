@@ -60,3 +60,9 @@
   flex-direction: column;
   align-self: start;
 }
+.buttonSiiter {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #4094bf;
+  border: 1px solid #4094bf;
+  color: white;
+}
