@@ -1,27 +1,50 @@
 body {
-	background-color: white;
+  background-color: white;
 }
 .MainShowPets {
-	/* background-color: honeydew; */
-	width: 100%;
-	height: 100%;
-	padding-left: 7.7%;
-	font-family: "Comic Sans MS", cursive, sans-serif;
-	color: #054e72;
+  /* background-color: honeydew; */
+  width: 100%;
+  height: 100%;
+  padding-left: 7.7%;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054e72;
 }
 .WelcomeTitleShowPets {
-	margin-top: 20px;
-	font-size: 40px;
-	letter-spacing: 2px;
+  margin-top: 20px;
+  font-size: 40px;
+  letter-spacing: 2px;
 }
 .PetTitle {
-	font-size: 40px;
-	letter-spacing: 2px;
+  font-size: 40px;
+  letter-spacing: 2px;
 }
 .ShowPetsOutterContainer {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	/* padding-right: 80px; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+@media screen and (max-width: 623px) {
+  .WelcomeTitleShowPets {
+    font-size: 25px;
+    margin-left: 5%;
+  }
+  .PetTitle {
+    font-size: 25px;
+    letter-spacing: 2px;
+    margin-left: 5%;
+  }
+  .ShowPetsOutterContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: -24px auto;
+    width: max-content;
+    /* margin-left: 5px; */
+  }
+  .MainShowPets {
+    padding: 0 0 0 0;
+  }
 }
