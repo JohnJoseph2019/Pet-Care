@@ -93,7 +93,6 @@ export default class Appointments extends Component {
               Submit
             </button>
           </div>
-          {/* {this.renderError()} */}
         </form>
       </>
     );

@@ -124,6 +124,17 @@ export default class Main extends Component {
       appointments: prevState.appointments.filter(app => app.id !== petId),
     }));
   };
+  clearShit = () => {
+    console.log('in clear shit');
+    this.setState({
+      formAppointmentData: {
+        restriction_note: '',
+        accepted: false,
+        start_date: '',
+        end_date: '',
+      },
+    });
+  };
   render() {
     const { currentUser } = this.props;
     console.log('In Main', this.props);
@@ -175,6 +186,7 @@ export default class Main extends Component {
               render={props => {
                 const petId = props.match.params.id;
                 const currentPet = this.state.pets.find(pet => pet.id === parseInt(petId));
+
                 return (
                   <PetDetail
                     {...props}
@@ -209,17 +221,19 @@ export default class Main extends Component {
           <Route
             exact
             path='/appointments/new'
-            render={props => (
-              <NewAppointments
-                {...props}
-                petId={this.state.Pet_id}
-                pets={this.state.pets}
-                appointmentData={this.state.formAppointmentData}
-                createAppointment={this.createAppointment}
-                appointmentHandleChange={this.appointmentHandleChange}
-                handleSelected={this.handleSelected}
-              />
-            )}
+            render={props => {
+              return (
+                <NewAppointments
+                  {...props}
+                  petId={this.state.Pet_id}
+                  pets={this.state.pets}
+                  appointmentData={this.state.formAppointmentData}
+                  createAppointment={this.createAppointment}
+                  appointmentHandleChange={this.appointmentHandleChange}
+                  handleSelected={this.handleSelected}
+                />
+              );
+            }}
           />
           <Route
             exact
