@@ -4,7 +4,12 @@ import Login from './Login';
 import Register from './Register';
 import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
-import { createAppointment, getAllAppointments, deleteAppointment } from '../services/appointments';
+import {
+  createAppointment,
+  getAllAppointments,
+  deleteAppointment,
+  getAllOfTheAppointments,
+} from '../services/appointments';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
@@ -33,13 +38,15 @@ export default class Main extends Component {
   };
 
   componentDidMount() {
-    if (this.props.currentUser) {
+    if (this.props.currentUser && !this.props.sitter) {
       this.getPets();
+      this.getTotalAppointments();
     }
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
+      this.getTotalAppointments();
     }
   }
 
@@ -125,21 +132,28 @@ export default class Main extends Component {
       appointments: prevState.appointments.filter(app => app.id !== petId),
     }));
   };
-  clearShit = () => {
-    console.log('in clear shit');
-    this.setState({
-      formAppointmentData: {
-        restriction_note: '',
-        accepted: false,
-        start_date: '',
-        end_date: '',
-      },
-    });
+
+  getTotalAppointments = async () => {
+    const appointments = await getAllOfTheAppointments();
+    this.setState({ appointments });
   };
+
+  // clearShit = () => {
+  //   console.log('in clear shit');
+  //   this.setState({
+  //     formAppointmentData: {
+  //       restriction_note: '',
+  //       accepted: false,
+  //       start_date: '',
+  //       end_date: '',
+  //     },
+  //   });
+  // };
   render() {
     const { currentUser } = this.props;
-    console.log('In Main', this.props);
-    console.log('In Main pets', this.state.pets);
+    // console.log('In Main', this.props);
+    // console.log('In Main pets', this.state.pets);
+    // console.log('IN MAIN SITTER APPOINTMENTS', this.state.appointments);
 
     return (
       <div className='main-div'>
@@ -255,7 +269,17 @@ export default class Main extends Component {
               );
             }}
           />
-          <Route exact path='/sitter' render={() => <Sitter />} />
+          <Route
+            exact
+            path='/sitter'
+            render={() => (
+              <Sitter
+                appointments={this.state.appointments}
+                pets={this.state.pets}
+                currentUser={this.props.currentUser}
+              />
+            )}
+          />
         </Switch>
       </div>
     );

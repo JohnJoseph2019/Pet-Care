@@ -28,3 +28,12 @@ export const deleteAppointment = async (pet_id, appointmentId) => {
     throw error;
   }
 };
+
+export const getAllOfTheAppointments = async () => {
+  try {
+    const resp = await api.get(`/appointments`);
+    return resp.data;
+  } catch (error) {
+    throw error;
+  }
+};

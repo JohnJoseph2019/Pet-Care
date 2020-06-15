@@ -1,0 +1,54 @@
+.sitterTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054e72;
+  margin: 10px 0 10px 40px;
+}
+.sitterAvailable {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054e72;
+  margin: 10px 0 10px 40px;
+}
+.sitterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 50px auto;
+  margin-left: 50px;
+  overflow-x: scroll;
+  height: 700px;
+  width: max-content;
+  border: 1px solid bisque;
+}
+.sitterOuterContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid #054e72;
+  margin: 20px 0 0 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #054e72;
+  height: 80px;
+  border-radius: 2px;
+  padding: 0 5px 0 5px;
+  box-shadow: 0 8px 6px -6px black;
+}
+.sitterStartEndDate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

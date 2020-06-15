@@ -6,7 +6,7 @@ import { loginUser, registerUser, removeToken, verifyUser } from './services/aut
 export default class App extends Component {
   state = {
     currentUser: null,
-    logIn: false,
+    sitter: null,
   };
 
   componentDidMount() {
@@ -15,7 +15,9 @@ export default class App extends Component {
 
   handleLoginSubmit = async loginData => {
     const currentUser = await loginUser(loginData);
-    this.setState({ currentUser, logIn: true });
+    console.log('aaaaaaaaaa', currentUser.isSitter);
+    const sitter = currentUser.isSitter;
+    this.setState({ currentUser, sitter });
   };
   handRegisterSubmit = async registerData => {
     const currentUser = await registerUser(registerData);
@@ -47,6 +49,7 @@ export default class App extends Component {
           handleLoginSubmit={this.handleLoginSubmit}
           handRegisterSubmit={this.handRegisterSubmit}
           currentUser={this.state.currentUser}
+          sitter={this.state.sitter}
           logIn={this.state.logIn}
         />
       </>
