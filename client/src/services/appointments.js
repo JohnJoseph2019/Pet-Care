@@ -1,6 +1,6 @@
-import api from "./apiConfig";
+import api from './apiConfig';
 
-export const getAllAppointments = async (pet_id) => {
+export const getAllAppointments = async pet_id => {
   try {
     const resp = await api.get(`/pets/${pet_id}/appointments`);
     return resp.data;
@@ -20,9 +20,9 @@ export const createAppointment = async (pet_id, appointmentData) => {
   }
 };
 
-export const deleteAppointment = async (pet_id, id) => {
+export const deleteAppointment = async (pet_id, appointmentId) => {
   try {
-    const resp = await api.delete(`/pets/${pet_id}/appointments/${id}`);
+    const resp = await api.delete(`/pets/${pet_id}/appointments/${appointmentId}`);
     return resp;
   } catch (error) {
     throw error;

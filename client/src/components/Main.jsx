@@ -4,7 +4,7 @@ import Login from './Login';
 import Register from './Register';
 import ShowPets from './ShowPets';
 import { getAllPets, createPet, updatePet, deletePet } from '../services/pets';
-import { createAppointment, getAllAppointments } from '../services/appointments';
+import { createAppointment, getAllAppointments, deleteAppointment } from '../services/appointments';
 import AddPet from './AddPet';
 import PetDetail from './PetDetail';
 import PetEdit from './PetEdit';
@@ -99,14 +99,6 @@ export default class Main extends Component {
       this.state.Pet_id,
       this.state.formAppointmentData
     );
-    // this.setState({
-    //   formAppointmentData: {
-    //     restriction_note: '',
-    //     accepted: false,
-    //     start_date: '',
-    //     end_date: '',
-    //   },
-    // });
     console.log('createdAppointment info here: ', newAppointment);
   };
   appointmentHandleChange = e => {
@@ -126,6 +118,14 @@ export default class Main extends Component {
   getAllPetsAppointments = async petId => {
     const appointments = await getAllAppointments(petId);
     this.setState({ appointments });
+  };
+
+  deleteAppointment = async (petId, appId) => {
+    const deletedApp = await deleteAppointment(petId, appId);
+    console.log(deletedApp);
+    this.setState(prevState => ({
+      appointments: prevState.appointments.filter(app => app.id !== petId),
+    }));
   };
 
   render() {
@@ -233,10 +233,11 @@ export default class Main extends Component {
               // this.getAllPetsAppointments(petId);
               return (
                 <AppointmentsPage
+                  {...props}
                   petId={petId}
                   appointments={this.state.appointments}
-                  getAllPetsAppointments={this.getAllPetsAppointments}
                   pets={this.state.pets}
+                  deleteAppointment={this.deleteAppointment}
                 />
               );
             }}
