@@ -88,7 +88,7 @@ export default class Main extends Component {
     }));
   };
   removePet = async petId => {
-    await deletePet(petId);
+    const deleted = await deletePet(petId);
     this.setState(prevState => ({
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));
@@ -99,6 +99,7 @@ export default class Main extends Component {
       this.state.Pet_id,
       this.state.formAppointmentData
     );
+
     console.log('createdAppointment info here: ', newAppointment);
   };
   appointmentHandleChange = e => {
@@ -122,8 +123,8 @@ export default class Main extends Component {
 
   render() {
     const { currentUser } = this.props;
-    // console.log('In Main', this.props);
-    // console.log('In Main pets', this.state.pets);
+    console.log('In Main', this.props);
+    console.log('In Main pets', this.state.pets);
 
     return (
       <div className='main-div'>
@@ -208,6 +209,7 @@ export default class Main extends Component {
             render={props => (
               <NewAppointments
                 {...props}
+                petId={this.state.Pet_id}
                 pets={this.state.pets}
                 appointmentData={this.state.formAppointmentData}
                 createAppointment={this.createAppointment}

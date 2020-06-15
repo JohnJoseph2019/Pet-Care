@@ -19,12 +19,14 @@ export default class Appointments extends Component {
       pets,
       history,
       createAppointment,
+      petId,
     } = this.props;
     const options = pets.map(pet => {
       return { value: pet.id, name: 'Pet_id', label: pet.name };
     });
 
     console.log('ooptiones', options);
+    console.log('NEW APPOINTMENT PET ID', petId);
 
     return (
       <>
@@ -32,9 +34,10 @@ export default class Appointments extends Component {
 
         <form
           className='appointmentOuterDiv'
-          onSubmit={() => {
+          onSubmit={event => {
+            event.preventDefault();
             createAppointment();
-            history.push('/pets');
+            history.push(`/pets`);
           }}>
           <div className='appointmentInnerDiv'>
             <label className='lableAppointment' htmlFor='start_date'>
@@ -85,7 +88,9 @@ export default class Appointments extends Component {
                 onChange={handleSelected}
               />
             </label>
-            <button className='appointmentButton'>Submit</button>
+            <button type='submit' className='appointmentButton'>
+              Submit
+            </button>
           </div>
           {/* {this.renderError()} */}
         </form>
