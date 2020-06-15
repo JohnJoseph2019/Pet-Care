@@ -106,9 +106,8 @@ export default class PetDetail extends Component {
                       <div className='restrictionApp'>
                         <span className='spanAppointmentDetail'>Note:</span>
                         <div className='restrictionAppointment'>{appointment.restriction_note}</div>
-
-                        <button className='deleteApp'>delete</button>
                       </div>
+                      <button className='deleteApp'>delete</button>
                     </div>
                   );
                 })
