@@ -27,3 +27,8 @@
     margin: 0 10px 0 0;
   }
 }
+@media screen and (max-width: 623px) {
+  .navHeader {
+    display: none;
+  }
+}
