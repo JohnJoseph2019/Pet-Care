@@ -181,7 +181,7 @@ export default class Main extends Component {
               currentUser && !currentUser.isSitter ? (
                 <ShowPets currentUser={currentUser} pets={this.state.pets} />
               ) : currentUser && currentUser.isSitter ? (
-                <Redirect to='/sitter' />
+                <Redirect to='/sitterAppointments' />
               ) : (
                 <Redirect to='/' />
               )
@@ -269,6 +269,16 @@ export default class Main extends Component {
           />
           <Route
             exact
+            path='/sitterAppointments'
+            render={() => (
+              <SitterAppointments
+                appointments={this.state.appointments}
+                currentUser={this.props.currentUser}
+              />
+            )}
+          />
+          <Route
+            exact
             path='/sitter'
             render={props => (
               <Sitter
@@ -277,16 +287,6 @@ export default class Main extends Component {
                 pets={this.state.pets}
                 currentUser={this.props.currentUser}
                 updateApp={this.updateApp}
-              />
-            )}
-          />
-          <Route
-            exact
-            path='/sitter/:id'
-            render={() => (
-              <SitterAppointments
-                appointments={this.state.appointments}
-                currentUser={this.props.currentUser}
               />
             )}
           />

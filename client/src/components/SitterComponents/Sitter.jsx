@@ -22,8 +22,10 @@ export default class Sitter extends Component {
   };
   handlesubmit = e => {
     e.preventDefault();
-    this.props.updateApp(this.state.petId, this.state.appId, { accepted: true });
-    this.props.history.push('/sitter');
+    this.props
+      .updateApp(this.state.petId, this.state.appId, { accepted: true })
+      .then(this.props.history.push('/sitterAppointments'))
+      .catch();
   };
   render() {
     const { appointments, currentUser } = this.props;

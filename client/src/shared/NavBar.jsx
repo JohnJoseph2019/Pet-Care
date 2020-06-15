@@ -21,8 +21,11 @@ export default function NavBar(props) {
         </>
       ) : (
         <>
-          <NavLink className='linkHeader' to='/appointments/new'>
+          <NavLink className='linkHeader' to='/sitterAppointments'>
             My Appointments
+          </NavLink>
+          <NavLink className='linkHeader' to='/sitter'>
+            Available Appointments
           </NavLink>
         </>
       )}
