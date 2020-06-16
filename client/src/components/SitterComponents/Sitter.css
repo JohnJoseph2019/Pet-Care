@@ -20,24 +20,33 @@
   color: #054e72;
   margin: 10px 0 10px 40px;
 }
-.sitterContainer {
+.BigContiner {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: row;
+  /* justify-content: flex-start; */
+  flex-wrap: wrap;
+  align-items: flex-start;
   margin: 50px auto;
   margin-left: 50px;
+  height: 80px;
+}
+.sitterContainer {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 50px auto;
+  margin-left: 50px; */
   /* overflow-x: scroll; */
-  /* height: 500px; */
-  /* width: max-content; */
-  border: 1px solid bisque;
+  /* border: 1px solid lightblue; */
 }
 .sitterOuterContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
-  border: 1px solid #054e72;
+  align-self: center;
+  border: 4px solid #054e72;
   margin: 20px 0 0 0;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   color: #054e72;
@@ -65,4 +74,5 @@
   background-color: #4094bf;
   border: 1px solid #4094bf;
   color: white;
+  width: max-content;
 }

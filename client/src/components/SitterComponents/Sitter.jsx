@@ -39,40 +39,42 @@ export default class Sitter extends Component {
           <>
             <div className='sitterTitle'> Hi {currentUser.username}, </div>
             <div className='sitterAvailable'>Available Appointments</div>
-            <div className='sitterContainer'>
-              {openApp.map(app => {
-                return (
-                  <div key={app.id}>
-                    <div className='sitterOuterContainer'>
-                      <div className='sitterStartEndDate'>
-                        <span className='spanAppointment'>Start:</span>
-                        <div className='startDATE'>{new Date(app.start_date).toDateString()}</div>
-                        <span className='spanAppointment'>End:</span>
-                        <div className='endDATE'>{new Date(app.end_date).toDateString()}</div>
-                      </div>
-                      <div className='divRestriction'>
-                        <span className='spanAppointment'>Note:</span>
-                        <div className='restrictionAppointment'>{app.restriction_note}</div>
-                      </div>
-                      <form className='checkBoxMain' onSubmit={this.handleSubmit}>
-                        <div className='inlineBox'>
-                          <label htmlFor='true'>Yes: </label>
-                          <input
-                            type='checkbox'
-                            id='true'
-                            name='accepted'
-                            value={true}
-                            onChange={() => this.onChange(app.pet_id, app.id)}
-                          />
+            <div className='BigContiner'>
+              <div className='sitterContainer'>
+                {openApp.map(app => {
+                  return (
+                    <div key={app.id} className='sitterOuterContainer'>
+                      <div>
+                        <div className='sitterStartEndDate'>
+                          <span className='spanAppointment'>Start:</span>
+                          <div className='startDATE'>{new Date(app.start_date).toDateString()}</div>
+                          <span className='spanAppointment'>End:</span>
+                          <div className='endDATE'>{new Date(app.end_date).toDateString()}</div>
                         </div>
-                        <button type='submit' className='buttonSiiter'>
-                          Save
-                        </button>
-                      </form>
+                        <div className='divRestriction'>
+                          <span className='spanAppointment'>Note:</span>
+                          <div className='restrictionAppointment'>{app.restriction_note}</div>
+                        </div>
+                        <form className='checkBoxMain' onSubmit={this.handleSubmit}>
+                          <div className='inlineBox'>
+                            <label htmlFor='true'>Yes: </label>
+                            <input
+                              type='checkbox'
+                              id='true'
+                              name='accepted'
+                              value={true}
+                              onChange={() => this.onChange(app.pet_id, app.id)}
+                            />
+                          </div>
+                          <button type='submit' className='buttonSiiter'>
+                            Save
+                          </button>
+                        </form>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </>
         )}

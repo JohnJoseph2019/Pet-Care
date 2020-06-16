@@ -7,22 +7,22 @@ export default function SitterAppointments(props) {
     <div>
       {props.currentUser && (
         <>
-          <div className='sitterTitle'> Hi {props.currentUser.username}, </div>
-          <div className='sitterAvailable'>Your appointments</div>
-          <div className='sitterContainer'>
+          <div className='sitterTitleSS'> Hi {props.currentUser.username}, </div>
+          <div className='sitterAvailableSS'>Your appointments</div>
+          <div className='sitterContainerSS'>
             {myAppointments.map(app => {
               return (
-                <div key={app.id}>
-                  <div className='sitterOuterContainer'>
-                    <div className='sitterStartEndDate'>
+                <div key={app.id} className='sitterOuterContainerSS'>
+                  <div>
+                    <div className='sitterStartEndDateSS'>
                       <span className='spanAppointment'>Start:</span>
                       <div className='startDATE'>{new Date(app.start_date).toDateString()}</div>
                       <span className='spanAppointment'>End:</span>
                       <div className='endDATE'>{new Date(app.end_date).toDateString()}</div>
                     </div>
-                    <div className='divRestriction'>
+                    <div className='divRestrictionSS'>
                       <span className='spanAppointment'>Note:</span>
-                      <div className='restrictionAppointment'>{app.restriction_note}</div>
+                      <div className='restrictionAppointmentSS'>{app.restriction_note}</div>
                     </div>
                   </div>
                 </div>
