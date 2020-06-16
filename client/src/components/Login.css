@@ -92,7 +92,7 @@ a {
   cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 623px) {
   .LoginOuterDiv {
     width: 400px;
     height: 300px;
