@@ -23,8 +23,6 @@
 .sitterContainerSS {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
   margin: 50px auto;
   margin-left: 60px;
   flex-wrap: wrap;
