@@ -57,6 +57,18 @@ label.lableAppointment {
 
 @media screen and (max-width: 623px) {
   .appointmentTitle {
-    font-size: 28px;
+    font-size: 25px;
+  }
+  .appointmentOuterDiv {
+    margin: 20px auto;
+    height: max-content;
+    width: 400px;
   }
 }
+/* @media screen and (max-width: 380px) {
+  .appointmentOuterDiv {
+    margin: 20px auto;
+    height: max-content;
+    width: 360px;
+  }
+} */
