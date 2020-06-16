@@ -13,8 +13,9 @@
 .petOutertImg {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  align-self: center;
 }
 .petInfoDetail {
   display: flex;
@@ -51,7 +52,7 @@
   justify-content: center;
   align-items: center;
   font-size: 30px;
-  color: black;
+  color: #054e72;
   font-family: 'Comic Sans MS', cursive, sans-serif;
   margin-top: 30px;
 }
@@ -79,4 +80,31 @@
 }
 .petEditImage + .petEditLabel {
   margin-top: 15px;
+}
+
+@media screen and (max-width: 770px) {
+  .EditTitle {
+    font-size: 25px;
+    margin-top: 20px;
+  }
+  .petEditForm {
+    flex-direction: column;
+    margin: 15px auto;
+    height: max-content;
+    width: 300px;
+  }
+  .petEditImage {
+    height: 200px;
+    width: 200px;
+    margin: 0 0 0 0;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .petEditLabel {
+    margin-top: 10px;
+    align-self: center;
+  }
+  .petOutertImg {
+    margin-left: 0;
+  }
 }
