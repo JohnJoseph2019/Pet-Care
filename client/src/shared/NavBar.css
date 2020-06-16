@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 .linkHeader {
@@ -31,4 +31,6 @@
   .navHeader {
     display: none;
   }
+}
+@media screen and (max-width: 450px) {
 }
