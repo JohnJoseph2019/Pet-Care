@@ -54,3 +54,9 @@ label.lableAppointment {
   letter-spacing: 1.3px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 623px) {
+  .appointmentTitle {
+    font-size: 28px;
+  }
+}
