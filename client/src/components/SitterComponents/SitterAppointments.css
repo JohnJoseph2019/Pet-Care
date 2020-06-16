@@ -55,3 +55,38 @@
 .restrictionAppointmentSS {
   width: 250px;
 }
+
+@media screen and (max-width: 980px) {
+  .sitterContainerSS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    margin-left: 60px;
+    flex-wrap: nowrap;
+    height: max-content;
+    width: max-content;
+  }
+}
+
+@media screen and (max-width: 623px) {
+  .sitterTitleSS {
+    font-size: 20px;
+  }
+  .sitterAvailableSS {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .sitterTitleSS {
+    font-size: 18px;
+  }
+  .sitterAvailableSS {
+    font-size: 18px;
+  }
+  .sitterContainerSS {
+    margin: 0;
+  }
+}
