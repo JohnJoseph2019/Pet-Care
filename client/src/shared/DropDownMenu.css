@@ -162,3 +162,19 @@
     height: 1px;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .dropDownMenu .dropbtn {
+    font-size: 22px;
+  }
+  a.dropdown-links {
+    font-size: 15px;
+  }
+  .dropdown-content > a {
+    padding: 10px 12px;
+    width: 80px;
+  }
+  .dropdown-content {
+    margin-top: 32px;
+  }
+}

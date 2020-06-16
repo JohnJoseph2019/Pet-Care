@@ -5,7 +5,7 @@
   align-items: center;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #054e72;
   margin: 10px 0 10px 0;
 }
@@ -23,7 +23,7 @@
 label.lableAddPet {
   font-weight: bold;
   font-size: 18px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   margin-top: 10px;
 }
 .petAddPet {
@@ -40,7 +40,7 @@ label.lableAddPet {
   height: 50px;
   font-size: 22px;
   color: white;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background-color: #4094bf;
   border: 1px solid #4094bf;
   border-radius: 2px;
@@ -54,5 +54,43 @@ label.lableAddPet {
     height: max-content;
     width: max-content;
     padding: 0 30px 0 30px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .CreateDogTitle {
+    font-size: 25px;
+  }
+  label > input {
+    width: 250px;
+    height: 20px;
+  }
+  label.lableAddPet {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .CreateDogTitle {
+    font-size: 25px;
+  }
+  label > input {
+    width: 250px;
+    height: 20px;
+  }
+  label.lableAddPet {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .CreateDogTitle {
+    font-size: 20px;
+  }
+  label > input {
+    width: 200px;
+    height: 20px;
+  }
+  label.lableAddPet {
+    font-size: 13px;
   }
 }

@@ -38,3 +38,9 @@
     font-size: 30px;
   }
 }
+
+@media screen and (max-width: 350px) {
+  .headerTitle {
+    font-size: 20px;
+  }
+}
