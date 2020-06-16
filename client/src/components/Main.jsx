@@ -141,11 +141,14 @@ export default class Main extends Component {
   };
   updateApp = async (petId, appId, appData) => {
     const updatedAppointment = await updateAppointment(parseInt(petId), parseInt(appId), appData);
-    this.setState(prevState => ({
-      appointments: prevState.appointments.map(appointment => {
-        return appointment.id === parseInt(appId) ? updatedAppointment : appointment;
+    this.setState(
+      prevState => ({
+        appointments: prevState.appointments.map(appointment => {
+          return appointment.id === parseInt(appId) ? updatedAppointment : appointment;
+        }),
       }),
-    }));
+      () => this.forceUpdate()
+    );
   };
   render() {
     const { currentUser } = this.props;

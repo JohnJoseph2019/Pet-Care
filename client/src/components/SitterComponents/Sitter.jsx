@@ -7,7 +7,7 @@ export default class Sitter extends Component {
     petId: null,
     appId: null,
   };
-  oncChange = (petId, appId) => {
+  onChange = (petId, appId) => {
     console.log('in hear =========', petId, appId, this.state.isChecked);
     if (this.state.isChecked === true) {
       petId = '';
@@ -20,7 +20,7 @@ export default class Sitter extends Component {
       appId,
     }));
   };
-  handlesubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     this.props
       .updateApp(this.state.petId, this.state.appId, { accepted: true })
@@ -46,17 +46,15 @@ export default class Sitter extends Component {
                     <div className='sitterOuterContainer'>
                       <div className='sitterStartEndDate'>
                         <span className='spanAppointment'>Start:</span>
-                        <div className='startDATE'>{app.start_date}</div>
+                        <div className='startDATE'>{new Date(app.start_date).toDateString()}</div>
                         <span className='spanAppointment'>End:</span>
-                        <div className='endDATE'>{app.end_date}</div>
+                        <div className='endDATE'>{new Date(app.end_date).toDateString()}</div>
                       </div>
                       <div className='divRestriction'>
                         <span className='spanAppointment'>Note:</span>
                         <div className='restrictionAppointment'>{app.restriction_note}</div>
                       </div>
-                      <form
-                        className='checkBoxMain'
-                        onSubmit={() => this.handlesubmit(app.pet_id, app.id)}>
+                      <form className='checkBoxMain' onSubmit={this.handleSubmit}>
                         <div className='inlineBox'>
                           <label htmlFor='true'>Yes: </label>
                           <input
@@ -64,7 +62,7 @@ export default class Sitter extends Component {
                             id='true'
                             name='accepted'
                             value={true}
-                            onChange={() => this.oncChange(app.pet_id, app.id)}
+                            onChange={() => this.onChange(app.pet_id, app.id)}
                           />
                         </div>
                         <button type='submit' className='buttonSiiter'>

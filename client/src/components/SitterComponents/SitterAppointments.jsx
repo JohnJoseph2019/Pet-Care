@@ -16,9 +16,9 @@ export default function SitterAppointments(props) {
                   <div className='sitterOuterContainer'>
                     <div className='sitterStartEndDate'>
                       <span className='spanAppointment'>Start:</span>
-                      <div className='startDATE'>{app.start_date}</div>
+                      <div className='startDATE'>{new Date(app.start_date).toDateString()}</div>
                       <span className='spanAppointment'>End:</span>
-                      <div className='endDATE'>{app.end_date}</div>
+                      <div className='endDATE'>{new Date(app.end_date).toDateString()}</div>
                     </div>
                     <div className='divRestriction'>
                       <span className='spanAppointment'>Note:</span>
