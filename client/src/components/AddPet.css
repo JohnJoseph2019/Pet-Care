@@ -47,3 +47,12 @@ label.lableAddPet {
   letter-spacing: 1.3px;
   cursor: pointer;
 }
+
+@media screen and (max-width: 623px) {
+  .CreateDogOuterDiv {
+    margin: 20px auto;
+    height: max-content;
+    width: max-content;
+    padding: 0 30px 0 30px;
+  }
+}
