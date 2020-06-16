@@ -5,7 +5,7 @@
   align-items: center;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #054e72;
   margin: 10px 0 10px 0;
 }
@@ -28,7 +28,7 @@
 label.lableAppointment {
   font-weight: bold;
   font-size: 18px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   margin-top: 10px;
 }
 .appointmentInput {
@@ -47,7 +47,7 @@ label.lableAppointment {
   width: 300px;
   font-size: 22px;
   color: white;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background-color: #4094bf;
   border: 1px solid #4094bf;
   border-radius: 2px;
@@ -65,10 +65,63 @@ label.lableAppointment {
     width: 400px;
   }
 }
-/* @media screen and (max-width: 380px) {
+
+@media screen and (max-width: 430px) {
+  .appointmentTitle {
+    font-size: 20px;
+  }
   .appointmentOuterDiv {
     margin: 20px auto;
     height: max-content;
-    width: 360px;
+    width: 350px;
+    height: 450px;
   }
-} */
+  label.lableAppointment {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+  label > input {
+    margin-top: 5px;
+    width: 250px;
+    height: 18px;
+  }
+  .selectPet {
+    width: 270px;
+  }
+  .appointmentButton {
+    margin-top: 15px;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .appointmentTitle {
+    font-size: 20px;
+  }
+  .appointmentOuterDiv {
+    margin: 20px auto;
+    height: max-content;
+    width: 300px;
+    height: 450px;
+  }
+
+  label > input {
+    margin-top: 5px;
+    width: 200px;
+    height: 18px;
+  }
+  .selectPet {
+    width: 200px;
+  }
+  .appointmentButton {
+    margin-top: 15px;
+    width: 200px;
+  }
+  .appointmentInput {
+    margin-left: 0;
+  }
+  .appointmentButton {
+    margin-top: 15px;
+    width: 150px;
+  }
+}

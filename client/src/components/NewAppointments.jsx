@@ -3,15 +3,7 @@ import Select from 'react-select';
 import './NewAppointments.css';
 
 export default class Appointments extends Component {
-  //  export const departments = [
-  //  { value: 'Meat & Seafood', label: 'Meat & Seafood', name: "department" },
-  //  { value: 'Produce', label: 'Produce', name: "department" },
-  //  { value: 'Deli', label: 'Deli', name: "department" },
-  //  { value: 'Bakery & Dessert', label: 'Bakery & Dessert', name: "department" }
-  // ];
-
   render() {
-    console.log(this.props);
     const { start_date, end_date, restriction_note } = this.props.appointmentData;
     const {
       appointmentHandleChange,
@@ -24,10 +16,6 @@ export default class Appointments extends Component {
     const options = pets.map(pet => {
       return { value: pet.id, name: 'Pet_id', label: pet.name, key: pet.id };
     });
-
-    console.log('ooptiones', options);
-    console.log('NEW APPOINTMENT PET ID', petId);
-
     return (
       <>
         <div className='appointmentTitle'>New Appointment</div>
@@ -79,7 +67,7 @@ export default class Appointments extends Component {
                 className='appointmentInput'
               />
             </label>
-            <label className='lableAppointment' htmlFor='petId'>
+            <label className='lableAppointment aaa' htmlFor='petId'>
               Pet:
               <Select
                 key='1'
