@@ -51,7 +51,6 @@
   font-family: 'Comic Sans MS', cursive, sans-serif;
   color: #054e72;
   height: 150px;
-  border-radius: 2px;
   padding: 0 5px 0 5px;
   box-shadow: 0 8px 6px -6px black;
 }
@@ -75,4 +74,37 @@
   border: 1px solid #4094bf;
   color: white;
   width: max-content;
+}
+
+@media screen and (max-width: 623px) {
+  .sitterTitle {
+    font-size: 20px;
+  }
+  .sitterAvailable {
+    font-size: 20px;
+  }
+  .sitterOuterContainer {
+    border: 2px solid #054e72;
+    margin-top: 10px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-width: 380px) {
+  .sitterOuterContainer {
+    border: 2px solid #054e72;
+    margin-top: 5px;
+    height: 150px;
+    margin-right: 20px;
+    width: 300px;
+  }
+  .sitterContainer {
+    overflow-x: scroll;
+  }
+  .sitterTitle {
+    font-size: 20px;
+  }
+  .sitterAvailable {
+    font-size: 20px;
+  }
 }

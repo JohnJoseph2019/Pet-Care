@@ -34,7 +34,7 @@ export default class Sitter extends Component {
     console.log(this.state.isChecked);
     console.log(this.props.updateApp);
     return (
-      <div>
+      <>
         {currentUser && (
           <>
             <div className='sitterTitle'> Hi {currentUser.username}, </div>
@@ -78,7 +78,7 @@ export default class Sitter extends Component {
             </div>
           </>
         )}
-      </div>
+      </>
     );
   }
 }
