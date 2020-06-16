@@ -96,6 +96,7 @@ export default class Main extends Component {
   };
   removePet = async petId => {
     const deleted = await deletePet(petId);
+    console.log(deleted);
     this.setState(prevState => ({
       pets: prevState.pets.filter(pet => pet.id !== petId),
     }));

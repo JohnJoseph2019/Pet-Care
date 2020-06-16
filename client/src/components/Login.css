@@ -6,8 +6,9 @@
   align-items: center;
   margin: 70px auto;
   border: 1px solid grey;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background-color: white;
+  /* font-family: 'MacSystem', sans-serif; */
 }
 .LoginTitleW {
   margin: 50px 0 15px 0;
@@ -33,7 +34,7 @@
   height: 50px;
   font-size: 22px;
   color: white;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background-color: #4094bf;
   border: 1px solid #4094bf;
   border-radius: 2px;
@@ -43,7 +44,7 @@
 .passwordInput > input {
   width: 450px;
   height: 45px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   font-size: 25px;
   color: black;
   padding: 10px 0 10px 20px;
@@ -53,7 +54,7 @@
 .usernameInput > input {
   width: 450px;
   height: 45px;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   font-size: 25px;
   color: black;
   padding: 10px 0 10px 20px;
@@ -63,7 +64,7 @@
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: gray;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 .LoginToSignUp {
@@ -84,14 +85,13 @@ a {
   height: 50px;
   font-size: 22px;
   color: white;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   background-color: #a00000;
   border: 1px solid #a00000;
   border-radius: 2px;
   letter-spacing: 1.3px;
   cursor: pointer;
 }
-
 @media screen and (max-width: 623px) {
   .LoginOuterDiv {
     width: 400px;
@@ -144,9 +144,61 @@ a {
     font-size: 20px;
   }
 }
-
+@media screen and (max-width: 430px) {
+  .LoginOuterDiv {
+    width: 250px;
+    height: 300px;
+    margin-top: 30px;
+  }
+  .LoginTitleW {
+    margin: 20px 0 10px 0;
+    color: black;
+    font-size: 18px;
+    text-shadow: none;
+  }
+  .usernameInput > input {
+    margin: 10px auto;
+    width: 150px;
+    height: 20px;
+    font-size: 15px;
+    padding: 8px 0 8px 15px;
+  }
+  .usernameInput {
+    margin: 2px;
+  }
+  .passwordInput {
+    margin: 5px;
+  }
+  .passwordInput > input {
+    margin: 10px auto;
+    width: 150px;
+    height: 20px;
+    font-size: 15px;
+    padding: 8px 0 8px 15px;
+  }
+  .logIn {
+    align-self: center;
+    margin: 10px 0 15px 0;
+    height: 45px;
+    font-size: 18px;
+    width: 100px;
+  }
+  .LoginInnerDiv {
+    padding: 0 20px 0 20px;
+    margin: 0;
+  }
+  .LoginToSignUp {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .LoginToSignUp > a {
+    position: relative;
+    left: 8px;
+    font-size: 15px;
+  }
+}
 ::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
   color: gray;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
