@@ -17,9 +17,12 @@
 
 <br>
 
+1. [backend](https://petcare-backend-api.herokuapp.com/users)
+2. [frontend](http://petcareforall.surge.sh/)
+
 ## Overview
 
-**PetCare** This is an app for pet owners that need a babysitter for there pets. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need a sitter. Also you can checkout our database of all our sitters with basic information that you might find handy for contact.
+**PetCare** This is an app for pet owners that need a babysitter for there pets. Basically in this app you are able to book an appointment to any PetCarer that is available and once is book you are all set. In this app you are able to add all your pets that need a sitter.Also a sitter can log in and see which appointments are available and up for grabs. 
 
 <br>
 
@@ -45,6 +48,8 @@ Well for my MVP I want to be able to buil a full stack project with CRUD in the 
 | :--------------: | :----------------------------------------- |
 |      React       |This will allow me to use JS and HTML to render my API calls|
 |   Ruby on Rails | This is what I be will using to build in my backEnd/api calls|
+|   Axios | This what I will be suing for calling my endpoints from the front to the back|
+|react-toggle | I needed it this to make my switch toggle button|
 
 
 <br>
@@ -174,7 +179,17 @@ PetCare
 
 ## Code Showcase
 
-> Use this section to include a brief code snippet of functionality that you are proud of and a brief description. None at the moment
+>
+```structure
+            <label className='toggleSwitch' htmlFor='isSitter'>
+              Sitter:
+              <Toggle
+                id='isSitter'
+                defaultChecked={this.state.isSitter}
+                onChange={this.handleToggle}
+              />
+            </label>
+````
 
 ## Code Issues & Resolutions
 
