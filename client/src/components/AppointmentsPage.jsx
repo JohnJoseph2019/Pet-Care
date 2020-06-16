@@ -19,9 +19,11 @@ export default class AppointmentsPage extends Component {
                   <div className='apppointmentInnercontainer'>
                     <div className='startEnd'>
                       <span className='spanAppointment'>Start:</span>
-                      <div className='startDATE'>{appointment.start_date}</div>
+                      <div className='startDATE'>
+                        {new Date(appointment.start_date).toDateString()}
+                      </div>
                       <span className='spanAppointment'>End:</span>
-                      <div className='endDATE'>{appointment.end_date}</div>
+                      <div className='endDATE'>{new Date(appointment.end_date).toDateString()}</div>
                     </div>
                     <div className='divRestriction'>
                       <span className='spanAppointment'>Note:</span>

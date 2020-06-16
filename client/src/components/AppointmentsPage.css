@@ -5,7 +5,7 @@
   align-items: center;
   font-size: 30px;
   font-weight: bold;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #054e72;
   margin: 10px 0 10px 40px;
 }
@@ -27,7 +27,7 @@
   align-items: center;
   border: 1px solid #054e72;
   margin: 20px 0 0 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #054e72;
   height: 80px;
   border-radius: 2px;
@@ -75,6 +75,63 @@
   border-radius: 2px;
   letter-spacing: 1.3px;
   cursor: pointer;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   margin-right: 10px;
+}
+@media screen and (max-width: 535px) {
+  .appointmentContainer {
+    align-items: center;
+    margin: 20px auto;
+    height: max-content;
+    margin-left: 0;
+  }
+  .apppointmentInnercontainer {
+    width: 350px;
+    height: max-content;
+  }
+  .appDelete {
+    margin-bottom: 10px;
+  }
+  .divRestriction > span {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .appointmentContainer {
+    align-items: center;
+    margin: 20px auto;
+    height: max-content;
+    margin-left: 0;
+  }
+  .apppointmentInnercontainer {
+    width: 250px;
+    height: 120px;
+  }
+  .appDelete {
+    margin-bottom: 10px;
+  }
+  .divRestriction > span {
+    margin-left: 20px;
+  }
+  .startDATE {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  .endDATE {
+    font-size: 12px;
+    margin-right: 4px;
+  }
+  .spanAppointment {
+    font-size: 13px;
+  }
+  .appDelete {
+    align-self: center;
+  }
+  .divRestriction > span {
+    margin-left: 0px;
+  }
+  .pageTitle {
+    font-size: 20px;
+  }
 }
