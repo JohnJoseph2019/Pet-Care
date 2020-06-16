@@ -58,3 +58,16 @@
     margin: 0;
   }
 }
+
+@media screen and (max-width: 375px) {
+  .petOuterContainer {
+    height: 425px;
+    width: 280px;
+    margin-right: 4%;
+  }
+  .petImage {
+    height: 12em;
+    width: 12em;
+    margin-bottom: 10px;
+  }
+}
