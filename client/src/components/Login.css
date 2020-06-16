@@ -146,19 +146,20 @@ a {
 }
 @media screen and (max-width: 430px) {
   .LoginOuterDiv {
-    width: 250px;
+    width: 300px;
     height: 300px;
     margin-top: 30px;
   }
   .LoginTitleW {
     margin: 20px 0 10px 0;
     color: black;
-    font-size: 18px;
+    font-size: 20px;
     text-shadow: none;
+    font-weight: bold;
   }
   .usernameInput > input {
     margin: 10px auto;
-    width: 150px;
+    width: 200px;
     height: 20px;
     font-size: 15px;
     padding: 8px 0 8px 15px;
@@ -171,7 +172,7 @@ a {
   }
   .passwordInput > input {
     margin: 10px auto;
-    width: 150px;
+    width: 200px;
     height: 20px;
     font-size: 15px;
     padding: 8px 0 8px 15px;
@@ -194,7 +195,9 @@ a {
   .LoginToSignUp > a {
     position: relative;
     left: 8px;
-    font-size: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 0;
   }
 }
 ::-webkit-input-placeholder {
