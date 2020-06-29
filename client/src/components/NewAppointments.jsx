@@ -4,7 +4,7 @@ import './NewAppointments.css';
 
 export default class Appointments extends Component {
   render() {
-    const { start_date, end_date, restriction_note } = this.props.appointmentData;
+    // const { start_date, end_date, restriction_note } = this.props.appointmentData;
     const {
       appointmentHandleChange,
       handleSelected,
@@ -61,7 +61,6 @@ export default class Appointments extends Component {
                 required
                 type='text'
                 name='restriction_note'
-                value={restriction_note}
                 id='start_date '
                 placeholder='...'
                 onChange={appointmentHandleChange}

@@ -103,11 +103,7 @@ export default class Main extends Component {
   };
   /************** APPOINTMENTS  ********************************************************************/
   createAppointment = async () => {
-    console.log(this.state.formAppointmentData.start_date);
-    const newAppointment = await createAppointment(
-      this.state.Pet_id,
-      this.state.formAppointmentData
-    );
+    await createAppointment(this.state.Pet_id, this.state.formAppointmentData);
     this.setState({
       formAppointmentData: {
         restriction_note: '',
