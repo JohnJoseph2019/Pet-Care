@@ -13,6 +13,11 @@ export default class Appointments extends Component {
       createAppointment,
       petId,
     } = this.props;
+    const today = new Date();
+    const date = `${today.getFullYear()}-0${
+      today.getMonth() + 1
+    }-${today.getDate()}T${today.getHours()}:${today.getMinutes()}`;
+    console.log(date);
     const options = pets.map(pet => {
       return { value: pet.id, name: 'Pet_id', label: pet.name, key: pet.id };
     });
@@ -31,27 +36,23 @@ export default class Appointments extends Component {
             <label className='lableAppointment' htmlFor='start_date'>
               Start Date:
               <input
-                required
-                type='text'
+                type='datetime-local'
+                id='start_date'
                 name='start_date'
-                value={start_date}
-                id='start_date '
-                placeholder='YYYY/MM/DD'
+                value={date}
+                min={date}
                 onChange={appointmentHandleChange}
-                className='appointmentInput'
+                required
               />
             </label>
             <label className='lableAppointment' htmlFor='end_date'>
               End Date:
               <input
-                required
-                type='text'
+                type='datetime-local'
+                id='end_date'
                 name='end_date'
-                value={end_date}
-                id='start_date '
-                placeholder='YYYY/MM/DD'
+                min={date}
                 onChange={appointmentHandleChange}
-                className='appointmentInput'
               />
             </label>
             <label className='lableAppointment' htmlFor='restriction_note'>

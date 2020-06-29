@@ -3,6 +3,15 @@ import './AppointmentsPage.css';
 export default class AppointmentsPage extends Component {
   render() {
     const { petId, appointments, pets, deleteAppointment, history } = this.props;
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour12: true,
+      hour: 'numeric',
+      minute: 'numeric',
+    };
 
     // console.log('in RENDER AppointmentPage:', this.props);
     const petName = pets.find(pet => pet.id === parseInt(petId));
@@ -20,10 +29,12 @@ export default class AppointmentsPage extends Component {
                     <div className='startEnd'>
                       <span className='spanAppointment'>Start:</span>
                       <div className='startDATE'>
-                        {new Date(appointment.start_date).toDateString()}
+                        {new Date(appointment.start_date).toLocaleDateString('en-US', options)}
                       </div>
                       <span className='spanAppointment'>End:</span>
-                      <div className='endDATE'>{new Date(appointment.end_date).toDateString()}</div>
+                      <div className='endDATE'>
+                        {new Date(appointment.end_date).toLocaleString('en-US', options)}
+                      </div>
                     </div>
                     <div className='divRestriction'>
                       <span className='spanAppointment'>Note:</span>
