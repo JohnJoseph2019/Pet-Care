@@ -17,7 +17,6 @@ export default class Appointments extends Component {
     const date = `${today.getFullYear()}-0${
       today.getMonth() + 1
     }-${today.getDate()}T${today.getHours()}:${today.getMinutes()}`;
-    console.log(date);
     const options = pets.map(pet => {
       return { value: pet.id, name: 'Pet_id', label: pet.name, key: pet.id };
     });
@@ -39,7 +38,6 @@ export default class Appointments extends Component {
                 type='datetime-local'
                 id='start_date'
                 name='start_date'
-                value={date}
                 min={date}
                 onChange={appointmentHandleChange}
                 required
