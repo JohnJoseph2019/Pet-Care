@@ -3,7 +3,6 @@ import { NavLink, Redirect } from 'react-router-dom';
 import './NavBar.css';
 
 export default function NavBar(props) {
-  console.log('In header ', props);
   const { currentUser } = props;
   return (
     <nav className='navHeader'>

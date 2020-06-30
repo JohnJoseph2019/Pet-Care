@@ -30,13 +30,6 @@ export default class Main extends Component {
       age: 0,
     },
     appointments: [],
-    formAppointmentData: {
-      restriction_note: '',
-      accepted: false,
-      start_date: '',
-      end_date: '',
-    },
-    Pet_id: null,
   };
 
   componentDidMount() {
@@ -45,7 +38,7 @@ export default class Main extends Component {
       this.getTotalAppointments();
     }
   }
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProps) {
     if (prevProps.currentUser !== this.props.currentUser) {
       this.getPets();
       this.getTotalAppointments();
@@ -102,36 +95,11 @@ export default class Main extends Component {
     }));
   };
   /************** APPOINTMENTS  ********************************************************************/
-  createAppointment = async () => {
-    await createAppointment(this.state.Pet_id, this.state.formAppointmentData);
-    this.setState({
-      formAppointmentData: {
-        restriction_note: '',
-        accepted: false,
-        start_date: '',
-        end_date: '',
-      },
-    });
-  };
   createAppointmentTwo = async (petId, data) => {
     const newApp = await createAppointment(petId, data);
     this.setState(prevState => ({
       appointments: [...prevState.appointments, newApp],
     }));
-  };
-  appointmentHandleChange = e => {
-    const { name, value } = e.target;
-    this.setState(prevState => ({
-      formAppointmentData: {
-        ...prevState.formAppointmentData,
-        [name]: value,
-      },
-    }));
-  };
-  handleSelected = selectedOption => {
-    this.setState({
-      [selectedOption.name]: selectedOption.value,
-    });
   };
   getAllPetsAppointments = async petId => {
     const appointments = await getAllAppointments(petId);
@@ -163,10 +131,7 @@ export default class Main extends Component {
   };
   render() {
     const { currentUser } = this.props;
-    // console.log('In Main', this.props);
-    // console.log('In Main pets', this.state.pets);
-    // console.log('IN MAIN SITTER APPOINTMENTS', this.state.appointments);
-
+    console.log('in MAIN', currentUser);
     return (
       <div className='main-div'>
         <Switch>
@@ -202,13 +167,15 @@ export default class Main extends Component {
             }
           />
           <Route
-            exact
             path='/add-pet'
             render={props =>
-              currentUser ? <AddPet {...props} createPet={this.createPet} /> : <Redirect to='/' />
+              currentUser ? (
+                <AddPet {...props} createPet={this.createPet} />
+              ) : (
+                <Redirect to='/pets' />
+              )
             }
           />
-
           <Route
             exact
             path='/pets/:id'
@@ -224,46 +191,24 @@ export default class Main extends Component {
                   getAllPetsAppointments={this.getAllPetsAppointments}
                 />
               ) : (
-                <Redirect to='/' />
+                <Redirect to='/pets' />
               )
             }
           />
-
           <Route
             exact
             path='/pets/:id/edit'
-            render={props => {
-              const petId = props.match.params.id;
-              // const currentPet = this.state.formPetData;
-              return (
-                <PetEdit
-                  {...props}
-                  petId={petId}
-                  petData={this.state.formPetData}
-                  editSubmit={this.editSubmit}
-                  handleChange={this.handleChange}
-                />
-              );
-            }}
+            render={props => (
+              <PetEdit
+                {...props}
+                petId={props.match.params.id}
+                petData={this.state.formPetData}
+                editSubmit={this.editSubmit}
+                handleChange={this.handleChange}
+              />
+            )}
           />
           <Route
-            exact
-            path='/appointments/new'
-            render={props =>
-              currentUser ? (
-                <NewAppointments
-                  {...props}
-                  createAppointmentTwo={this.createAppointmentTwo}
-                  pets={this.state.pets}
-                  getAllPetsAppointments={this.getAllPetsAppointments}
-                />
-              ) : (
-                <Redirect to='/' />
-              )
-            }
-          />
-          <Route
-            exact
             path='/pets/:id/appointments'
             render={props =>
               currentUser ? (
@@ -280,7 +225,21 @@ export default class Main extends Component {
             }
           />
           <Route
-            exact
+            path='/appointments/new'
+            render={props =>
+              currentUser ? (
+                <NewAppointments
+                  {...props}
+                  createAppointmentTwo={this.createAppointmentTwo}
+                  pets={this.state.pets}
+                  getAllPetsAppointments={this.getAllPetsAppointments}
+                />
+              ) : (
+                <Redirect to='/' />
+              )
+            }
+          />
+          <Route
             path='/sitterAppointments'
             render={() => (
               <SitterAppointments
@@ -290,7 +249,6 @@ export default class Main extends Component {
             )}
           />
           <Route
-            exact
             path='/sitter'
             render={props => (
               <Sitter

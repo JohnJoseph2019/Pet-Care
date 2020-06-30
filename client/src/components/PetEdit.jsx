@@ -2,7 +2,6 @@ import React from 'react';
 import './PetEdit.css';
 
 export default function PetEdit(props) {
-  console.log('aaaaaaa', props.petData);
   const { name, breed, pet_type, age, img_url } = props.petData;
   return (
     <>

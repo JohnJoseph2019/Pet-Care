@@ -7,22 +7,23 @@ export default class DropdownMenu extends Component {
     let chosenMenu = [];
     if (this.props.currentUser.isSitter === false) {
       chosenMenu = [
-        <NavLink className='dropdown-links' to='/appointments/new'>
+        <NavLink key={1} className='dropdown-links' to='/appointments/new'>
           New Appointment
         </NavLink>,
-        <NavLink className='dropdown-links' to='/add-pet'>
+        <NavLink key={2} className='dropdown-links' to='/add-pet'>
           Add Pet
         </NavLink>,
-        <NavLink className='dropdown-links' to='/pets'>
+        <NavLink key={3} className='dropdown-links' to='/pets'>
           Show Pets
         </NavLink>,
         <NavLink
+          key={4}
           className='dropdown-links'
           to='#'
-          onClick={() => {
-            this.props.handleLogout();
-            return <Redirect to='/' />;
-          }}>
+          onClick={
+            () => this.props.handleLogout()
+            // return <Redirect to='/' />;
+          }>
           Log Out
         </NavLink>,
       ];
@@ -37,10 +38,10 @@ export default class DropdownMenu extends Component {
         <NavLink
           className='dropdown-links'
           to='#'
-          onClick={() => {
-            this.props.handleLogout();
-            return <Redirect to='/' />;
-          }}>
+          onClick={
+            () => this.props.handleLogout()
+            // return <Redirect to='/' />;
+          }>
           Log Out
         </NavLink>,
       ];

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import { loginUser, registerUser, removeToken, verifyUser } from './services/auth';
+import { Redirect } from 'react-router-dom';
 
 export default class App extends Component {
   state = {
@@ -21,24 +22,22 @@ export default class App extends Component {
   };
   handRegisterSubmit = async registerData => {
     const currentUser = await registerUser(registerData);
-    this.setState({ currentUser, logIn: true });
+    this.setState({ currentUser });
   };
 
   handleLogout = () => {
-    localStorage.clear();
     this.setState({
       currentUser: null,
-      logIn: false,
     });
+    localStorage.clear();
     removeToken();
-
-    // this.props.history.push('/user/login');
   };
 
   handleVerify = async () => {
     const currentUser = await verifyUser();
-    const logOut = false;
-    this.setState({ currentUser, logOut });
+    if (currentUser) {
+      this.setState({ currentUser });
+    }
   };
 
   render() {
@@ -50,7 +49,6 @@ export default class App extends Component {
           handRegisterSubmit={this.handRegisterSubmit}
           currentUser={this.state.currentUser}
           sitter={this.state.sitter}
-          logIn={this.state.logIn}
         />
       </>
     );
