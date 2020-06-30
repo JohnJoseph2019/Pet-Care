@@ -252,14 +252,19 @@ export default class Main extends Component {
             path='/appointments/new'
             render={props => {
               return (
+                // <NewAppointments
+                //   {...props}
+                //   petId={this.state.Pet_id}
+                //   pets={this.state.pets}
+                //   appointmentData={this.state.formAppointmentData}
+                //   createAppointment={this.createAppointment}
+                //   appointmentHandleChange={this.appointmentHandleChange}
+                //   handleSelected={this.handleSelected}
+                // />
                 <NewAppointments
                   {...props}
-                  petId={this.state.Pet_id}
+                  createAppointmentTwo={this.createAppointmentTwo}
                   pets={this.state.pets}
-                  appointmentData={this.state.formAppointmentData}
-                  createAppointment={this.createAppointment}
-                  appointmentHandleChange={this.appointmentHandleChange}
-                  handleSelected={this.handleSelected}
                 />
               );
             }}
