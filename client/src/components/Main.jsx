@@ -113,6 +113,12 @@ export default class Main extends Component {
       },
     });
   };
+  createAppointmentTwo = async (petId, data) => {
+    const newApp = await createAppointment(petId, data);
+    this.setState(prevState => ({
+      appointments: [...prevState.appointments, newApp],
+    }));
+  };
   appointmentHandleChange = e => {
     const { name, value } = e.target;
     this.setState(prevState => ({

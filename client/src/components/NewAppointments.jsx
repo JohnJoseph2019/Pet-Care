@@ -2,9 +2,25 @@ import React, { Component } from 'react';
 import Select from 'react-select';
 import './NewAppointments.css';
 
-export default class Appointments extends Component {
+export default class NewAppointments extends Component {
+  state = {
+    restriction_note: '',
+    accepted: false,
+    start_date: '',
+    end_date: '',
+    isError: false,
+    errorMsg: '',
+    Pet_id: null,
+  };
+
+  handleChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value,
+      isError: false,
+      errorMsg: '',
+    });
+  };
   render() {
-    // const { start_date, end_date, restriction_note } = this.props.appointmentData;
     const {
       appointmentHandleChange,
       handleSelected,
@@ -14,9 +30,13 @@ export default class Appointments extends Component {
       petId,
     } = this.props;
     const today = new Date();
-    const date = `${today.getFullYear()}-0${
-      today.getMonth() + 1
-    }-${today.getDate()}T${today.getHours()}:${today.getMinutes()}`;
+    const date = `${today.getFullYear()}-${
+      today.getMonth() + 1 > 10 ? today.getMonth() + 1 : '0' + (today.getMonth() + 1)
+    }-${today.getDate() > 10 ? today.getDate() : '0' + today.getDate()}`;
+    const time = `T${today.getHours() > 10 ? today.getHours() : '0' + today.getHours()}:${
+      today.getMinutes() > 10 ? today.getMinutes() : '0' + today.getMinutes()
+    }`;
+    const dateTime = date + time;
     const options = pets.map(pet => {
       return { value: pet.id, name: 'Pet_id', label: pet.name, key: pet.id };
     });
@@ -38,8 +58,9 @@ export default class Appointments extends Component {
                 type='datetime-local'
                 id='start_date'
                 name='start_date'
-                min={date}
+                min={dateTime}
                 onChange={appointmentHandleChange}
+                className='appointmentInput'
                 required
               />
             </label>
@@ -49,8 +70,9 @@ export default class Appointments extends Component {
                 type='datetime-local'
                 id='end_date'
                 name='end_date'
-                min={date}
+                min={dateTime}
                 onChange={appointmentHandleChange}
+                className='appointmentInput'
               />
             </label>
             <label className='lableAppointment' htmlFor='restriction_note'>
