@@ -208,28 +208,27 @@ export default class Main extends Component {
               currentUser ? <AddPet {...props} createPet={this.createPet} /> : <Redirect to='/' />
             }
           />
-          {currentUser ? (
-            <Route
-              exact
-              path='/pets/:id'
-              render={props => {
-                const petId = props.match.params.id;
-                const currentPet = this.state.pets.find(pet => pet.id === parseInt(petId));
 
-                return (
-                  <PetDetail
-                    {...props}
-                    currentPet={currentPet}
-                    removePet={this.removePet}
-                    setPetEdit={this.setPetEdit}
-                    getAllPetsAppointments={this.getAllPetsAppointments}
-                  />
-                );
-              }}
-            />
-          ) : (
-            <Redirect to='/' />
-          )}
+          <Route
+            exact
+            path='/pets/:id'
+            render={props =>
+              currentUser ? (
+                <PetDetail
+                  {...props}
+                  currentPet={this.state.pets.find(
+                    pet => pet.id === parseInt(props.match.params.id)
+                  )}
+                  removePet={this.removePet}
+                  setPetEdit={this.setPetEdit}
+                  getAllPetsAppointments={this.getAllPetsAppointments}
+                />
+              ) : (
+                <Redirect to='/' />
+              )
+            }
+          />
+
           <Route
             exact
             path='/pets/:id/edit'
@@ -250,41 +249,35 @@ export default class Main extends Component {
           <Route
             exact
             path='/appointments/new'
-            render={props => {
-              return (
-                // <NewAppointments
-                //   {...props}
-                //   petId={this.state.Pet_id}
-                //   pets={this.state.pets}
-                //   appointmentData={this.state.formAppointmentData}
-                //   createAppointment={this.createAppointment}
-                //   appointmentHandleChange={this.appointmentHandleChange}
-                //   handleSelected={this.handleSelected}
-                // />
+            render={props =>
+              currentUser ? (
                 <NewAppointments
                   {...props}
                   createAppointmentTwo={this.createAppointmentTwo}
                   pets={this.state.pets}
+                  getAllPetsAppointments={this.getAllPetsAppointments}
                 />
-              );
-            }}
+              ) : (
+                <Redirect to='/' />
+              )
+            }
           />
           <Route
             exact
             path='/pets/:id/appointments'
-            render={props => {
-              const petId = props.match.params.id;
-              // this.getAllPetsAppointments(petId);
-              return (
+            render={props =>
+              currentUser ? (
                 <AppointmentsPage
                   {...props}
-                  petId={petId}
+                  petId={props.match.params.id}
                   appointments={this.state.appointments}
                   pets={this.state.pets}
                   deleteAppointment={this.deleteAppointment}
                 />
-              );
-            }}
+              ) : (
+                <Redirect to='/' />
+              )
+            }
           />
           <Route
             exact

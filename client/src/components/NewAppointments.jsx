@@ -27,10 +27,11 @@ export default class NewAppointments extends Component {
   };
   handleSubmit = async e => {
     e.preventDefault();
-    const { history, createAppointmentTwo } = this.props;
+    const { history, createAppointmentTwo, getAllPetsAppointments } = this.props;
     const { petId, isError, errorMsg, ...other } = this.state;
     createAppointmentTwo(petId, { ...other })
-      .then(() => history.push('/pets'))
+      .then(() => getAllPetsAppointments(petId))
+      .then(() => history.push(`/pets/${petId}/appointments`))
       .catch(error => {
         console.error(error);
         this.setState({
